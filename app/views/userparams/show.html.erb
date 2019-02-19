@@ -1,6 +1,7 @@
 <br>
 <h3>Профіль користувача:
 <b><%=current_user.email.split('@').first%></b></h3><br>
+<%= image_tag current_user.userparam.avatar.url(:thumb) %><br>
 <h5>  Ім'я:  <%=current_user.userparam.firstname%></h5>
 <h5>Прізвище:  <%=current_user.userparam.lastname%></h5>
 <h5>Вік:   <%=current_user.userparam.age %></h5>
