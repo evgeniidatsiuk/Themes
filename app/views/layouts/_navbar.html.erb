@@ -1,0 +1,25 @@
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<% if user_signed_in? %>
+
+  <%= link_to "Root", root_path %>
+
+  <% if current_user.userparam.nil? %>
+
+  <%= link_to "Profile", new_userparam_path%>
+
+  <% else %>
+
+  <%= link_to "Profile", userparam_path(current_user.id)%>
+
+  <% end %>
+
+  <%= link_to "Logout",  destroy_user_session_path, method: :delete %>
+
+<% else %>
+
+  <%= link_to "Login", new_user_session_path %>
+  <%= link_to "Registration", new_user_registration_path %>
+
+<% end %>
