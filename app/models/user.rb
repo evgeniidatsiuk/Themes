@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
-  validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
+  #validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
 
 
   has_one :userparam
@@ -54,4 +54,6 @@ class User < ApplicationRecord
   def self.find_record(login)
     where(['username = :value OR email = :value', { value: login }]).first
   end
+
+
 end

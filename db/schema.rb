@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2019_02_19_212438) do
 
   create_table "userparams", force: :cascade do |t|
     t.integer "user_id"
-    t.string "nickname"
     t.string "firstname"
     t.string "lastname"
     t.integer "age"
