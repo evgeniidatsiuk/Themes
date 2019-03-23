@@ -6,8 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
- # validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
-  #validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
+  validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
+  validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
 
 
   has_one :userparam
