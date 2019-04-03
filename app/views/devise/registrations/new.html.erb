@@ -1,44 +1,26 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Themes</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <h2>Sign up</h2>
-
+<div class="login-page" class="container">
+  <div class="registration-form" class="form">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="form-group" class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email or nickname", class:"input" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+      <div class="form-group" class="field">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder:"password", class:"input" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div class="form-group" class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"password", class:"input" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
-      </div>
+        <%= f.submit "Sign up" , class:"btn btn-primary"%>
+        </div>
     <% end %>
 
     <%= render "devise/shared/links" %>
-        <%= yield %>
-    </body>
-</html>
-
+    <%= yield %>
+  </div>
+</div>
