@@ -1,32 +1,36 @@
-<center style="margin-top:15%;"><h2>Sign up</h2>
+<div class="login-page" class="container">
+  <div class="registration-form" class="form">
+  <center style="margin-top:15%;"><h2>Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="field">
-      <p><%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" ,  class: "input-sign", placeholder:"Введіть ваш nickname" %>
+    <div class="form-group" class="field">
+      <p><%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" ,  class: "input-sign", placeholder:"Введіть ваш nickname", class:"input" %>
     </div>
 
-    <div class="field">
-      <p><%= f.email_field :email, autofocus: true, autocomplete: "email" ,  class: "input-sign", placeholder:"Введіть ваш емейл" %>
+    <div class="form-group" class="field">
+      <p><%= f.email_field :email, autofocus: true, autocomplete: "email" ,  class: "input-sign", placeholder:"Введіть ваш емейл", class:"input" %>
     </div>
 
-    <div class="field">
+    <div class="form-group" class="field">
 
-      <p><%= f.password_field :password, autocomplete: "new-password" ,  class: "input-sign", placeholder:"Введіть ваш пароль" %>
+      <p><%= f.password_field :password, autocomplete: "new-password" ,  class: "input-sign", placeholder:"Введіть ваш пароль", class:"input" %>
         <br /><% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> символів мінімум)</em>
         <% end %><br />
     </div>
 
-    <div class="field">
-      <p><%= f.password_field :password_confirmation, autocomplete: "new-password" ,  class: "input-sign", placeholder:"Повторіть пароль" %>
+    <div class="form-group" class="field">
+      <p><%= f.password_field :password_confirmation, autocomplete: "new-password" ,  class: "input-sign", placeholder:"Повторіть пароль", class:"input" %>
     </div>
 
-    <div class="actions">
-      <p><%= f.submit "Sign up" %>
+    <div class="form-group" class="actions">
+      <p><%= f.submit "Sign up", class:"btn btn-primary" %>
     </div>
   <% end %>
 
   <%= render "devise/shared/links" %>
-</center>
+  </center>
+  </div>
+</div>
