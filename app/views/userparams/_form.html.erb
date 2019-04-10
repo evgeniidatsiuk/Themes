@@ -1,8 +1,13 @@
-  Аватар:
-<%= f.file_field :avatar %><br>
-Ім'я:
-<%= f.text_field :firstname %><br>
-Прізвище:
-<%= f.text_field :lastname %><br>
-Вік:
-<%= f.text_field :age %><br>
+
+<div class="form-group" class="field">
+<%= f.file_field :avatar, class:"input", placeholder:"Avatar" %><br>
+</div>
+<div class="form-group" class="field">
+<%= f.text_field :firstname, class:"input", placeholder:"Name" %><br>
+</div>
+<div class="form-group" class="field">
+<%= f.text_field :lastname, class:"input", placeholder:"Forname" %><br>
+</div>
+<div class="form-group" class="field">
+<%= f.text_field :age, class:"input", placeholder:"Age" %><br>
+</div>
