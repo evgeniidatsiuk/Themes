@@ -3,5 +3,5 @@
 </h3>
 <%=form_for @userparam, url:userparam_path(current_user.id) do |f|%>
 <%=render 'userparams/form', f:f%>
-<%=f.submit "Update"%>
+<%=f.submit "Update", class:"btn btn-primary"%>
 <%end%>
