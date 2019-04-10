@@ -1,7 +1,9 @@
 class Load::WindowsSevenThemesController < ApplicationController
-  def show
+  def index
+    @windows_seven_themes = WindowsSevenTheme.all
   end
 
-  def index
+  def show
+    @windows_seven_theme = WindowsSevenTheme.find(params[:id])
   end
 end

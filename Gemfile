@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 #for user
 gem 'devise'
+
+gem 'activeadmin'
 #for userparams : avatar
 gem "paperclip", "~> 6.0.0"
 group :development, :test do
