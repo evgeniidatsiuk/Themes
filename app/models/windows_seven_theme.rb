@@ -1,0 +1,2 @@
+class WindowsSevenTheme < ApplicationRecord
+end

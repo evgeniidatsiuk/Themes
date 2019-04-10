@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :load do
+    resources :windows_seven_themes
+  end
   root 'pages#index'
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :userparams
