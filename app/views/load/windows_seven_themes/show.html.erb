@@ -1,7 +1,16 @@
 <br>
 Title:<%= @windows_seven_theme.name%><br>
-Author:<%= @windows_seven_theme.author%><br>
+Author:
+<%= link_to @windows_seven_theme.user.nickname, userparam_path(@windows_seven_theme.user.userparam)%><br>
+Loaded:
+<%= link_to @windows_seven_theme.admin_user.email, admin_admin_user_path(@windows_seven_theme.admin_user.id)%><br>
+
+<% @windows_seven_theme.photos.each do |x| %>
+<%= image_tag x.url %>
+<% end %>
+
 System: <%= @windows_seven_theme.system.name%><br>
+
 Views : <%= @windows_seven_theme.views %><br>
 Guide: <%= @windows_seven_theme.guide%><br>
 Description:<%= @windows_seven_theme.description%>

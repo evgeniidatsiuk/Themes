@@ -37,10 +37,16 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 #for user
 gem 'devise'
-
+#for admin_user
 gem 'activeadmin'
 #for userparams : avatar
 gem "paperclip", "~> 6.0.0"
+#for photos
+gem 'carrierwave', '~> 1.0'
+#css/js
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
