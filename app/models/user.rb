@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   has_one :userparam
   has_many :windows_seven_themes
+  has_many :windows_eight_themes
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
