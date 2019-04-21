@@ -1,4 +1,4 @@
-class Load::WindowsEightThemesController < ApplicationController
+class WindowsEightThemesController < ApplicationController
   before_action :find
 
   def index

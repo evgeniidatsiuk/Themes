@@ -1,4 +1,4 @@
-class Load::WindowsSevenThemesController < ApplicationController
+class WindowsSevenThemesController < ApplicationController
   before_action :find
   def index
     @windows_seven_themes = WindowsSevenTheme.all
