@@ -1,0 +1,2 @@
+module Load::WindowsTenThemesHelper
+end

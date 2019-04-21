@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :load do
+    get 'windows_ten_themes/index'
+    get 'windows_ten_themes/show'
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   namespace :load do
