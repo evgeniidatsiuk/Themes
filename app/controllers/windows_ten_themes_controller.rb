@@ -1,5 +1,5 @@
 class WindowsTenThemesController < ApplicationController
-  before_action :find
+  before_action :find_windows
   def index
     @windows_ten_themes = WindowsTenTheme.all
   end

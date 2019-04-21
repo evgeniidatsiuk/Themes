@@ -1,5 +1,5 @@
 class AdminUser < ApplicationRecord
-  
+
   attr_accessor :login
 
   # Include default devise modules. Others available are:

@@ -14,3 +14,6 @@ System: <%= @windows_eight_theme.system.name%><br>
 Views : <%= @windows_eight_theme.views %><br>
 Guide: <%= @windows_eight_theme.guide%><br>
 Description:<%= @windows_eight_theme.description%>
+Tags:
+  <%= raw @windows_eight_theme.tags.map{ |tag| link_to tag.system.name, system_path(tag.system.name), class: 'font-weight-bold badge badge-secondary' }.join(' ') %>
+<br>

@@ -1,5 +1,5 @@
 class WindowsSevenThemesController < ApplicationController
-  before_action :find
+  before_action :find_windows
   def index
     @windows_seven_themes = WindowsSevenTheme.all
   end
@@ -11,7 +11,7 @@ class WindowsSevenThemesController < ApplicationController
 
   private
 
-  def find
+  def find_windows
     @windows_seven_theme = WindowsSevenTheme.find(params[:id])
   end
 end
