@@ -3,7 +3,7 @@ class CreateWindowsEightThemes < ActiveRecord::Migration[5.2]
     create_table :windows_eight_themes do |t|
       t.integer :admin_user_id
       t.integer :user_id
-      t.integer :views
+      t.integer :views, default: 0
       t.integer :system_id
       t.string :download
       t.string :guide

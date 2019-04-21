@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2019_04_21_082330) do
   create_table "windows_eight_themes", force: :cascade do |t|
     t.integer "admin_user_id"
     t.integer "user_id"
-    t.integer "views"
+    t.integer "views", default: 0
     t.integer "system_id"
     t.string "download"
     t.string "guide"

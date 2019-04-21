@@ -1,2 +1,16 @@
-<h1>Load::WindowsEightThemes#show</h1>
-<p>Find me in app/views/load/windows_eight_themes/show.html.erb</p>
+<br>
+Title:<%= @windows_eight_theme.name%><br>
+Author:
+<%= link_to @windows_eight_theme.user.userparam.username, userparam_path(@windows_eight_theme.user.userparam)%><br>
+Loaded:
+<%= link_to @windows_eight_theme.admin_user.email, admin_admin_user_path(@windows_eight_theme.admin_user.id)%><br>
+
+<% @windows_eight_theme.photos.each do |x| %>
+<%= image_tag x.url %>
+<% end %>
+
+System: <%= @windows_eight_theme.system.name%><br>
+
+Views : <%= @windows_eight_theme.views %><br>
+Guide: <%= @windows_eight_theme.guide%><br>
+Description:<%= @windows_eight_theme.description%>

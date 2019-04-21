@@ -1,7 +1,7 @@
 <br>
 Title:<%= @windows_seven_theme.name%><br>
 Author:
-<%= link_to @windows_seven_theme.user.nickname, userparam_path(@windows_seven_theme.user.userparam)%><br>
+<%= link_to @windows_seven_theme.user.userparam.username, userparam_path(@windows_seven_theme.user.userparam)%><br>
 Loaded:
 <%= link_to @windows_seven_theme.admin_user.email, admin_admin_user_path(@windows_seven_theme.admin_user.id)%><br>
 
