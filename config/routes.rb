@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  namespace :load do
-    get 'windows_ten_themes/index'
-    get 'windows_ten_themes/show'
-  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   namespace :load do
-    resources :windows_seven_themes, :windows_eight_themes
+    resources :windows_seven_themes, :windows_eight_themes, :windows_ten_themes
   end
   root 'pages#index'
   devise_for :users, controllers: { registrations: 'registrations' }
