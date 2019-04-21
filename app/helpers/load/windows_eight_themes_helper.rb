@@ -1,0 +1,2 @@
+module Load::WindowsEightThemesHelper
+end
