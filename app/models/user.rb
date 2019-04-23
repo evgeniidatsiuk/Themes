@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :login
+  after_create :create_userparam
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -12,6 +13,13 @@ class User < ApplicationRecord
 
   has_one :userparam
   has_many :themes
+
+  def create_userparam
+     # cтворює юзеру його парамси .
+     @userparam = Userparam.create(user_id: id)
+     @userparam.save
+   end
+
 
 
   def self.find_for_database_authentication(warden_conditions)
