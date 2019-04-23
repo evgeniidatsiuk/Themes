@@ -2,7 +2,11 @@ class UserparamsController < ApplicationController
   before_action :authenticate_user!, except: :show
 
     def new
-      @userparam = Userparam.new
+      if current_user.userparam
+        redirect_to userparam_path(current_user.userparam.id)
+        else
+          @userparam = Userparam.new
+      end
     end
 
     def create
