@@ -1,6 +1,6 @@
-<h2>Фото категорії "<%=@system.name%>" :</h2>
-<% if @windows_eight_themes == [] %>
-  <p>НЕ знайдено жодного запису(фото)</p>
+<br><h1><%=@system.name%> :</h1>
+<% if @themes == [] %>
+  <p>НЕ знайдено жодного запису</p>
 <% else %>
-  <%=render @windows_eight_themes%>
+  <%=render @themes%>
 <% end %>

@@ -1,0 +1,15 @@
+<br>
+Title:<%= @theme.name%><br>
+Author:
+<%= link_to @theme.user.userparam.username, userparam_path(@theme.user.userparam)%><br>
+<% @theme.photos.each do |x| %>
+<%= image_tag x.url[0] %>
+<% end %>
+
+System: <%= @theme.system.name%><br>
+
+Views : <%= @theme.views %><br>
+Description:<%= @theme.description%>
+Tags:
+  <%= raw @theme.tags.map{ |tag| link_to tag.system.name, system_path(tag.system.name), class: 'font-weight-bold badge badge-secondary' }.join(' ') %>
+<br>

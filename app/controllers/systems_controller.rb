@@ -6,6 +6,10 @@ class SystemsController < ApplicationController
 
         def show
           @system = System.find_by_name(params[:id])
-          @windows_eight_themes = @system.tags.where(object_type: 'WindowsEightTheme').map { |image| WindowsEightTheme.find(image.object_id) }
+          @themes = @system.tags.where(object_type: 'Theme').map { |x| Theme.find(x.object_id) }
         end
+
+        #def category
+        #  @tags=.where(system_id: System.find_by_name(params[:name]).id)
+        #end
 end

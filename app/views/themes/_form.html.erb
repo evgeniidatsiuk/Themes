@@ -1,4 +1,3 @@
-
 <div class="form-group" class="field">
 <%= f.file_field :photos, multiple: true %><br>
 </div>
@@ -6,16 +5,10 @@
 <%= f.text_field :name, class:"input", placeholder:"Name" %><br>
 </div>
 <div class="form-group" class="field">
-<%= f.text_field :guide, class:"input", placeholder:"Forname" %><br>
-</div>
-<div class="form-group" class="field">
 <%= f.text_field :download, class:"input", placeholder:"Age" %><br>
 </div>
 <div class="form-group" class="field">
 <%= f.select :system_id,options_from_collection_for_select(System.all, :id, :name) %><br>
-</div>
-<div class="form-group" class="field">
-<%= f.select :admin_user_id,options_from_collection_for_select(AdminUser.all, :id, :email) %><br>
 </div>
 <div class="form-group" class="field">
 <%= f.text_field :description, class:"input", placeholder:"Age" %><br>

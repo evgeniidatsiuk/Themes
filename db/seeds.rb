@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
-System.create!(name: "Windows 7")
-System.create!(name: "Windows 8")
-System.create!(name: "Windows 10")
+System.create!(name: "Windows_7")
+System.create!(name: "Windows_8")
+System.create!(name: "Windows_10")

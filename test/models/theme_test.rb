@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WindowsTenThemeTest < ActiveSupport::TestCase
+class ThemeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
