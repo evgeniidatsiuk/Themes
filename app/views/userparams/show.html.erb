@@ -1,15 +1,19 @@
 <br>
 <h3>Профіль користувача:
-<b><%=current_user.userparam.username%></b></h3><br>
-<%= image_tag current_user.userparam.avatar.url(:thumb) %><br>
-<h5>  Ім'я:  <%=current_user.userparam.firstname%></h5>
-<h5>Прізвище:  <%=current_user.userparam.lastname%></h5>
-<h5>Вік:   <%=current_user.userparam.age %></h5>
+  <b><%=@userparam.username%></b>
+</h3><br>
+<%= image_tag @userparam.avatar.url(:thumb) %><br>
+<h5>
+  Ім'я:
+  <%=@userparam.firstname%></h5>
+<h5>Прізвище:
+  <%=@userparam.lastname%></h5>
+<h5>Вік:
+  <%=@userparam.age %></h5>
 
+<%if user_signed_in? && current_user.id == @userparam.id%>
 
-<%if user_signed_in? && current_user.id == current_user.id%>
-
-<%=link_to "Редагувати профіль", edit_userparam_path(current_user.id)%><br>
-<%=link_to "Change devise profile", edit_user_registration_path%><br>
+  <%=link_to "Редагувати профіль", edit_userparam_path(@userparam.id)%><br>
+  <%=link_to "Change devise profile", edit_user_registration_path%><br>
 
 <%end%>

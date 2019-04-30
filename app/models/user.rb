@@ -15,7 +15,6 @@ class User < ApplicationRecord
   has_many :themes
 
   def create_userparam
-     # cтворює юзеру його парамси .
      @userparam = Userparam.create(user_id: id)
      @userparam.save
    end

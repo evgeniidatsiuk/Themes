@@ -5,17 +5,26 @@
 
   <%= link_to "Root", root_path %>
 
+  <%=link_to "Теми", systems_path%>
+
+  <%=link_to "Теми для Windows 7", system_path("windows-7")%>
+
+  <%=link_to "Теми для Windows 8", system_path("windows-8")%>
+
+  <%=link_to "Теми для Windows 10", system_path("windows-10")%>
+
+
   <% if current_user.userparam.nil? %>
 
-  <%= link_to "Profile", new_userparam_path%>
+    <%= link_to "Profile", new_userparam_path%>
 
   <% else %>
 
-  <%= link_to "Profile", userparam_path(current_user.id)%>
+    <%= link_to "Profile", userparam_path(current_user.id)%>
 
   <% end %>
 
-  <%= link_to "Logout",  destroy_user_session_path, method: :delete %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 
 <% else %>
 

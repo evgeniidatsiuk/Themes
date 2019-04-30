@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'themes/index'
-  get 'themes/new'
-  get 'themes/edit'
-  get 'themes/show'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'pages#index'
@@ -11,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :systems
   resources :themes
+
   #get '/:system/:name', to: 'systems#category', as: 'category'
 
 

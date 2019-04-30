@@ -1,7 +1,7 @@
-
   <div class="card">
-      <div class="card-body">
-        <%=link_to system.name, system_path(system.name), class:"btn btn-light card-title", style:"width:100%; color:#666FB0,overflow:auto"%>
-        <p class="card-text">Публікацій: <%=Tag.where(system_id: system.id, object_type: "Theme").count%></p>
-        </div>
+    <div class="card-body">
+      <%=link_to system.name, system_path(system.name), class:"btn btn-light card-title", style:"width:100%; color:#666FB0,overflow:auto"%>
+      <p class="card-text">Публікацій:
+        <%=Tag.where(system_id: system.id, object_type: "Theme").count%></p>
     </div>
+  </div>
