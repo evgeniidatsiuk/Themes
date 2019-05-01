@@ -1,12 +1,14 @@
 class SystemsController < ApplicationController
+
   def index
     @systems = System.all
+
    end
 
   def show
-    @systems = System.all
-    @system = System.find_by_name(params[:id])
-    @themes = @system.tags.where(object_type: 'Theme').map { |x| Theme.find(x.object_id) }
+  @system = System.find_by(name: params[:id])
+    @themes = @system.theme
+
   end
 
   # def category

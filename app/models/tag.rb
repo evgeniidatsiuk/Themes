@@ -1,18 +1,18 @@
 class Tag < ApplicationRecord
   belongs_to :object, polymorphic: true
-  belongs_to :system
+  belongs_to :category
 
-  def self.all_tags(object, names)
+    def self.all_tags(object, names)
     names = names.split(' ').map { |name| name.strip.downcase }
     names.delete('')
-    if names
+     if names
       names.to_set.map do |name|
-        system = System.where(name: name).first_or_create!
-        Tag.where(system_id: system.id, object_type: object.class.name, object_id: object.id).first_or_create!
-      end
-    end
+        category = Category.where(name: name).first_or_create!
+        Tag.where(category_id: category.id, object_type: object.class.name, object_id: object.id).first_or_create!
+       end
+     end
     object.tags.map do |tag|
-      tag.destroy unless names.include?(System.find(tag.system_id).name)
-    end
- end
+      tag.destroy unless names.include?(Category.find(tag.category_id).name)
+     end
+   end
 end

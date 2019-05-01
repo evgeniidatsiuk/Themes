@@ -15,5 +15,5 @@ Views :
 <%= @theme.views %><br>
 Description:<%= @theme.description%>
 Tags:
-<%= raw @theme.tags.map{ |tag| link_to tag.system.name, system_path(tag.system.name), class: 'font-weight-bold badge badge-secondary' }.join(' ') %>
+<%= raw @theme.tags.map{ |tag| link_to tag.category.name, category_path(tag.category.name), class: 'font-weight-bold badge badge-secondary' }.join(' ') %>
 <br>

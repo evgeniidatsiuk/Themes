@@ -8,9 +8,15 @@
 <div class="field">
   <%= f.text_field :download, class:"input", placeholder:"Download" %><br>
 </div>
-<div class="field">
-  <%= f.select :system_id,options_from_collection_for_select(System.all, :id, :name) %><br>
-</div>
+
+<p><%=f.label :system%><br/>
+
+	<%@systems.each do |system|%>
+		<p>
+			<%= check_box_tag 'system_ids[]' , system.id%>
+			<%= f.label system.name%>
+		</p>
+	<%end%>
 <div class="field">
   <%= f.text_field :description, class:"input", placeholder:"Description" %><br>
 </div>

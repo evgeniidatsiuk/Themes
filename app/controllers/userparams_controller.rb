@@ -1,6 +1,7 @@
 class UserparamsController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :find_user, only: %i[show edit update]
+
   def new
     if current_user.userparam
       redirect_to userparam_path(@userparam.id)

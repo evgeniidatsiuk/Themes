@@ -4,15 +4,16 @@
 <% if user_signed_in? %>
 
   <%= link_to "Root", root_path %>
-
-  <%=link_to "Теми", systems_path%>
-
-  <%=link_to "Теми для Windows 7", system_path("windows-7")%>
-
-  <%=link_to "Теми для Windows 8", system_path("windows-8")%>
-
-  <%=link_to "Теми для Windows 10", system_path("windows-10")%>
-
+  <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">Теми
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <% System.all.each do |system|%>
+            <li data-toggle="modal"><%=link_to system.name , system_path(system.name)%></li>
+            <%end%>
+          </ul>
+        </li>
 
   <% if current_user.userparam.nil? %>
 
