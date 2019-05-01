@@ -6,9 +6,15 @@ class SystemsController < ApplicationController
    end
 
   def show
-  @system = System.find_by(name: params[:id])
-    @themes = @system.theme
-
+    @system = System.find_by(name: params[:id])
+    @themes = @system.themes
+    @categories = []
+    @themes.map do |them|
+       them.tags.each do |tag|
+        @categories << tag.category_id
+      end
+    end
+    @categories= Category.where(id: @categories)
   end
 
   # def category

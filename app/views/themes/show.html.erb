@@ -7,7 +7,9 @@ Author:
 <% end %>
 
 System:
-<%= @theme.system.name%><br>
+<%@theme.systems.each do |system|%>
+<%= system.name %><br>
+<%end%>
 Link :
 <%= @theme.download %>
 <br>

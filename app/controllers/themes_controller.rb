@@ -21,7 +21,7 @@ class ThemesController < ApplicationController
     @theme = current_user.themes.build(theme_params)
 
     if @theme.save
-      @theme.system = @systems
+      @theme.systems = @systems
 
 
       Tag.all_tags(@theme, @all_tags)
