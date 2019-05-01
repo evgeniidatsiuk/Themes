@@ -1,8 +1,6 @@
 class SystemsController < ApplicationController
-
   def index
     @systems = System.all
-
    end
 
   def show
@@ -10,11 +8,11 @@ class SystemsController < ApplicationController
     @themes = @system.themes
     @categories = []
     @themes.map do |them|
-       them.tags.each do |tag|
+      them.tags.each do |tag|
         @categories << tag.category_id
       end
     end
-    @categories= Category.where(id: @categories)
+    @categories = Category.where(id: @categories)
   end
 
   # def category

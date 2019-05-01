@@ -1,21 +1,43 @@
 <br>
 Title:<%= @theme.name%><br>
+
 Author:
 <%= link_to @theme.user.userparam.username, userparam_path(@theme.user.userparam)%><br>
+
 <% @theme.photos.each do |x| %>
   <%= image_tag x.url[0] %>
 <% end %>
 
 System:
 <%@theme.systems.each do |system|%>
-<%= system.name %><br>
+  <%= system.name %><br>
 <%end%>
+
 Link :
 <%= @theme.download %>
 <br>
+
 Views :
 <%= @theme.views %><br>
+
 Description:<%= @theme.description%>
+
 Tags:
 <%= raw @theme.tags.map{ |tag| link_to tag.category.name, category_path(tag.category.name), class: 'font-weight-bold badge badge-secondary' }.join(' ') %>
 <br>
+
+<%= form_for :comment, url:comments_path do |f| %>
+<%= render 'comments/comment', f:f%>
+<%= f.hidden_field :object_type, value: @theme.class.name%>
+<%= f.hidden_field :object_id, value: @theme.id%>
+<%= f.submit "Create" %>
+<% end %>
+
+
+<% Comment.where(object: @theme).each do |comment| %>
+<br>User:
+<%= comment.user.userparam.username %>
+<br>
+<%= comment.text%>
+<hr>
+<%end%>

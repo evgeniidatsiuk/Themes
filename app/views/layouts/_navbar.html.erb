@@ -5,15 +5,15 @@
 
   <%= link_to "Root", root_path %>
   <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown">Теми
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <% System.all.each do |system|%>
-            <li data-toggle="modal"><%=link_to system.name , system_path(system.name)%></li>
-            <%end%>
-          </ul>
-        </li>
+    <a class="dropdown-toggle" data-toggle="dropdown">Теми
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <% System.all.each do |system|%>
+        <li data-toggle="modal"><%=link_to system.name , system_path(system.name)%></li>
+      <%end%>
+    </ul>
+  </li>
 
   <% if current_user.userparam.nil? %>
 

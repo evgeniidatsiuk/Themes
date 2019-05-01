@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :systems
   resources :themes
   resources :categories
+  resources :comments
 
   #get '/:system/:name', to: 'systems#category', as: 'category'
 

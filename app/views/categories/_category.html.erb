@@ -1,1 +1,4 @@
-<a><%=link_to category.name, category_path(category.name), class:"text-secondary"%> |  <%=Tag.where(category_id: category.id, object_type: "Theme").count%>| </a
+<a><%=link_to category.name, category_path(category.name), class:"text-secondary"%>
+  |
+  <%=Tag.where(category_id: category.id, object_type: "Theme").count%>|
+</a>

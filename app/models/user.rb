@@ -7,19 +7,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
-  #validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
-
-
   has_one :userparam
   has_many :themes
+  has_many :comments
+
+  validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
+  # validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
 
   def create_userparam
-     @userparam = Userparam.create(user_id: id)
-     @userparam.save
+    @userparam = Userparam.create(user_id: id)
+    @userparam.save
    end
-
-
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -63,6 +61,4 @@ class User < ApplicationRecord
   def self.find_record(login)
     where(['username = :value OR email = :value', { value: login }]).first
   end
-
-
 end
