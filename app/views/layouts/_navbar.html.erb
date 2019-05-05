@@ -1,29 +1,33 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+<%= link_to "Root", root_path %>
 
+<li class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown">Теми
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% System.all.each do |system|%>
+      <li data-toggle="modal"><%=link_to system.name , system_path(system.name)%></li>
+    <%end%>
+  </ul>
+</li>
 <% if user_signed_in? %>
-
-  <%= link_to "Root", root_path %>
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown">Теми
-      <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-      <% System.all.each do |system|%>
-        <li data-toggle="modal"><%=link_to system.name , system_path(system.name)%></li>
-      <%end%>
-    </ul>
-  </li>
 
   <% if current_user.userparam.nil? %>
 
     <%= link_to "Profile", new_userparam_path%>
+    |
 
   <% else %>
 
     <%= link_to "Profile", userparam_path(current_user.id)%>
+    |
 
   <% end %>
+
+  <%= link_to "Add your Theme!", new_theme_path%>
+  |
 
   <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 

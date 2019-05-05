@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'eugene@example.com', password: 'password', password_confirmation: 'password') if Rails.env.production?
 
-System.create!(name: "windows-7")
-System.create!(name: "windows-8")
-System.create!(name: "windows-10")
+System.create!(name: "Windows-7")
+System.create!(name: "Windows-8")
+System.create!(name: "Windows-10")
+System.create!(name: "Ubuntu")

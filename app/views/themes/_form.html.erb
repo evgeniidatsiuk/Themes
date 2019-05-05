@@ -11,16 +11,16 @@
 
 <p><%=f.label :system%><br/>
 
-	<%@systems.each do |system|%>
-		<p>
-			<%= check_box_tag 'system_ids[]' , system.id%>
-			<%= f.label system.name%>
-		</p>
-	<%end%>
-<div class="field">
-  <%= f.text_field :description, class:"input", placeholder:"Description" %><br>
-</div>
+  <%@systems.each do |system|%>
+    <p>
+      <%= check_box_tag 'system_ids[]' , system.id%>
+      <%= f.label system.name%>
+    </p>
+  <%end%>
+  <div class="field">
+    <%= f.text_field :description, class:"input", placeholder:"Description" %><br>
+  </div>
 
-<div class="field">
-  <%= f.text_field :all_tags, class:"input", placeholder:"Tag" %><br>
-</div>
+  <div class="field">
+    <%= f.text_field :all_tags, class:"input", placeholder:"Tag" %><br>
+  </div>

@@ -15,7 +15,7 @@ class User < ApplicationRecord
   # validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
 
   def create_userparam
-    @userparam = Userparam.create(user_id: id)
+    @userparam = Userparam.create(user_id: id, firstname: "Your FirstName", lastname: "Your LastName", age: 1)
     @userparam.save
    end
 

@@ -6,7 +6,14 @@ class Theme < ApplicationRecord
   mount_uploaders :photos, PhotoUploader
   serialize :photos, JSON # If you use SQLite, add this line.
 
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :download, presence: true
+
+
+
   def all_tags
     tags.map { |tag| Category.find(tag.category_id) }.map(&:name).join(', ')
   end
+
 end

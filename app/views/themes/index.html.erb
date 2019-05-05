@@ -1,5 +1,5 @@
 <% if @themes == []%>
-nothing
+  <%= link_to "Add your Theme!", new_theme_path%>
 <% else %>
-<%= render @themes %>
+  <%= render @themes %>
 <%end %>

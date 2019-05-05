@@ -1,4 +1,8 @@
 <br>
+<%if user_signed_in? && current_user.id == @theme.user_id%>
+  <%=link_to "Редагувати", edit_theme_path(@theme.id)%><br>
+<%end%>
+
 Title:<%= @theme.name%><br>
 
 Author:
@@ -13,26 +17,37 @@ System:
   <%= system.name %><br>
 <%end%>
 
-Link :
-<%= @theme.download %>
-<br>
-
 Views :
 <%= @theme.views %><br>
 
 Description:<%= @theme.description%>
-
-Tags:
+<br>
+Tags:<br>
 <%= raw @theme.tags.map{ |tag| link_to tag.category.name, category_path(tag.category.name), class: 'font-weight-bold badge badge-secondary' }.join(' ') %>
 <br>
+Download:<br>
+<%= link_to "Download theme", "http://#{@theme.download}"%>
+<hr>
+<br><br>
 
-<%= form_for :comment, url:comments_path do |f| %>
-<%= render 'comments/comment', f:f%>
-<%= f.hidden_field :object_type, value: @theme.class.name%>
-<%= f.hidden_field :object_id, value: @theme.id%>
-<%= f.submit "Create" %>
+<% if user_signed_in? %>
+
+  Input something :)
+  <br>
+  <%= form_for :comment, url:comments_path do |f| %>
+  <%= render 'comments/comment', f:f%>
+  <%= f.hidden_field :object_type, value: @theme.class.name%>
+  <%= f.hidden_field :object_id, value: @theme.id%>
+  <%= f.submit "Create" %>
 <% end %>
+<% else %>
+<br>
+Want to create a new comment?<br>
+<%= link_to "Login", new_user_session_path %>
+or
+<%= link_to "Registration", new_user_registration_path %>
 
+<% end%>
 
 <% Comment.where(object: @theme).each do |comment| %>
 <br>User:

@@ -34,9 +34,8 @@ class ThemesController < ApplicationController
 
   def update
     @systems = System.find(params[:system_ids])
-    @theme.system.clear
-    @theme.system = @systems
-
+#   @theme.systems.clear
+    @theme.systems = @systems
     @theme.update(theme_params)
     redirect_to theme_path(@theme.id)
     end
@@ -54,7 +53,7 @@ class ThemesController < ApplicationController
   private
 
   def theme_params
-    params.require(:theme).permit(:name, :system_id, :description, :download, :views, :user_id, photos: [])
+    params.require(:theme).permit(:name, :description, :download, :views, :user_id, photos: [])
   end
 
   def find_theme
