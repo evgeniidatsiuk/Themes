@@ -14,7 +14,9 @@ System:
 
 Views :
 <%= theme.views %><br>
-
+Comments :
+<%= Comment.where(object: theme).count%>
+<br>
 <%= link_to "More", theme_path(theme.id)%>
 
 <hr>

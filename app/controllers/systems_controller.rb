@@ -4,8 +4,8 @@ class SystemsController < ApplicationController
    end
 
   def show
-    @system = System.find_by(name: params[:id])
-    @themes = @system.themes
+    @systems = System.find_by(name: params[:id])
+    @themes = @systems.themes
     @categories = []
     @themes.map do |them|
       them.tags.each do |tag|

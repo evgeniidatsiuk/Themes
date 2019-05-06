@@ -6,10 +6,10 @@
   <%= f.text_field :name, class:"input", placeholder:"Name" %><br>
 </div>
 <div class="field">
-  <%= f.text_field :download, class:"input", placeholder:"Download" %><br>
+  <%= f.text_field :download, class:"input", placeholder:"Link for download(after 'http://')" %><br>
 </div>
 
-<p><%=f.label :system%><br/>
+<p><%= f.label :system %><br/>
 
   <%@systems.each do |system|%>
     <p>
@@ -22,5 +22,5 @@
   </div>
 
   <div class="field">
-    <%= f.text_field :all_tags, class:"input", placeholder:"Tag" %><br>
+    <%= f.text_field :all_tags, class:"input", placeholder:"Tags" %><br>
   </div>
