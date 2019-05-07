@@ -1,5 +1,5 @@
 <div class="field">
-  <%= f.file_field :photos, multiple: true %><br>
+  <%= f.file_field :photos, multiple: true, class:"input" %><br>
 </div>
 
 <div class="field">
@@ -9,7 +9,6 @@
   <%= f.text_field :download, class:"input", placeholder:"Link for download(after 'http://')" %><br>
 </div>
 
-<p><%= f.label :system %><br/>
 
   <%@systems.each do |system|%>
     <p>

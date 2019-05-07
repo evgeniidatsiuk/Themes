@@ -1,4 +1,4 @@
 <%= simple_form_for @theme,url:themes_path , validate: true do |f| %>
 <%= render 'themes/form', f:f%>
-<%= f.submit "Створити" %>
+<%= f.submit "Створити", class:"btn btn-primary" %>
 <% end %>
