@@ -1,4 +1,10 @@
-<%= simple_form_for @theme,url:themes_path , validate: true do |f| %>
-<%= render 'themes/form', f:f%>
-<%= f.submit "Створити", class:"btn btn-primary" %>
-<% end %>
+<div class="row">
+    <div class="col-sm-3 col-lg-4"></div>
+    <div class="col-sm-6 col-lg-4">
+    <%= simple_form_for @theme,url:themes_path , validate: true do |f| %>
+        <%= render 'themes/form', f:f%>
+        <%= f.submit "Create", class:"btn btn-primary" %>
+    <% end %>
+    </div>
+    <div class="col-sm-3 col-lg-4"></div>
+</div>
