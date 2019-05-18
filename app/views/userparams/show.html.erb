@@ -1,11 +1,64 @@
-<br>
-<h3>Профіль користувача:
-<b><%=current_user.userparam.username%></b></h3><br>
-<%= image_tag current_user.userparam.avatar.url(:thumb) %><br>
-<h5>  Ім'я:  <%=current_user.userparam.firstname%></h5>
-<h5>Прізвище:  <%=current_user.userparam.lastname%></h5>
-<h5>Вік:   <%=current_user.userparam.age %></h5>
-<%if user_signed_in? && current_user.id == current_user.id%>
-<%=link_to "Редагувати профіль", edit_userparam_path(current_user.id)%><br>
-<%=link_to "Change devise profile", edit_user_registration_path%><br>
-<%end%>
+<div class="user-profile container-fluid">
+	
+	<div class="row">
+		<div class="col-lg-3"></div>
+		<div class="col-sm-6 col-lg-3 center">
+       		<span class="profile-picture">
+           	<%= image_tag @userparam.avatar.url(:thumb), class:"img-thumbnail"%>
+			</span>
+
+			<%if user_signed_in? && current_user.id == @userparam.id%>
+
+			<%=link_to "Edit Profile", edit_userparam_path(@userparam.id), class:"btn btn-sm btn-block btn-primary"%><br>
+			<%=link_to "Settings", edit_user_registration_path, class:"btn btn-sm btn-block btn-primary"%><br>
+
+			<%end%>
+
+		</div><!-- /.col -->
+
+		<div class="col-sm-6 col-lg-3">
+			<h4 class="blue">
+				<span class="middle">Welcome to <%=@userparam.username%> profile</span>
+			</h4>
+
+			<div class="profile-user-info">
+				<div class="profile-info-row">
+					<div class="profile-info-name"> Username </div>
+
+					<div class="profile-info-value">
+						<span><%=@userparam.username%></span>               
+   					</div>
+   				</div>
+
+   				<div class="profile-info-row">
+					<div class="profile-info-name"> First Name </div>
+
+					<div class="profile-info-value">
+						<span><%=@userparam.firstname%></span>
+					</div>
+				</div>
+
+				<div class="profile-info-row">
+					<div class="profile-info-name"> Last Name </div>
+
+					<div class="profile-info-value">
+						<span><%=@userparam.lastname%></span>
+					</div>
+				</div>
+							  
+				<div class="profile-info-row">
+					<div class="profile-info-name"> Age </div>
+
+					<div class="profile-info-value">
+						<span><%=@userparam.age%></span>
+					</div>
+ 				</div>
+                
+			</div>
+			
+		</div><!-- /.col -->
+		<div class="col-lg-3"></div>
+	</div><!-- /.row -->
+				
+		
+</div>

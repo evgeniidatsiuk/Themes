@@ -1,0 +1,25 @@
+<div class="field">
+  <%= f.file_field :photos, multiple: true, class:"input" %><br>
+</div>
+
+<div class="field">
+  <%= f.text_field :name, class:"input", placeholder:"Name" %><br>
+</div>
+<div class="field">
+  <%= f.text_field :download, class:"input", placeholder:"Link for download(after 'http://')" %><br>
+</div>
+
+
+  <%@systems.each do |system|%>
+    <p>
+      <%= check_box_tag 'system_ids[]' , system.id%>
+      <%= f.label system.name%>
+    </p>
+  <%end%>
+  <div class="field">
+    <%= f.text_field :description, class:"input", placeholder:"Description" %><br>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :all_tags, class:"input", placeholder:"Tags" %><br>
+  </div>

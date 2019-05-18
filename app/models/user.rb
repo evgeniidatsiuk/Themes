@@ -1,16 +1,23 @@
 class User < ApplicationRecord
   attr_accessor :login
+  after_create :create_userparam
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
-  #validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
-
-
   has_one :userparam
+  has_many :themes
+  has_many :comments
+
+  validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
+  # validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
+
+  def create_userparam
+    @userparam = Userparam.create(user_id: id, firstname: "Your FirstName", lastname: "Your LastName", age: 1)
+    @userparam.save
+   end
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -54,6 +61,4 @@ class User < ApplicationRecord
   def self.find_record(login)
     where(['username = :value OR email = :value', { value: login }]).first
   end
-
-
 end

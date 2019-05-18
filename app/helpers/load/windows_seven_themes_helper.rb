@@ -1,0 +1,2 @@
+module Load::WindowsSevenThemesHelper
+end

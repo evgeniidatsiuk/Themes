@@ -1,7 +1,13 @@
-<h3>Профіль користувача
-  <b><%=@userparam.user.email.split('@').first%></b>
-</h3>
-<%=form_for @userparam, url:userparam_path(current_user.id) do |f|%>
-<%=render 'userparams/form', f:f%>
-<%=f.submit "Update", class:"btn btn-primary"%>
-<%end%>
+<div class="row">
+  <div class="col-sm-3 col-lg-4"></div>
+  <div class="col-sm-6 col-lg-4">
+    <h3 class="center">
+      <b><%=@userparam.username%></b> profile
+    </h3>
+    <%=simple_form_for @userparam, url:userparam_path(@userparam.id), validate: true do |f|%>
+    <%=render 'userparams/form', f:f%>
+    <%=f.submit "Update", class:"btn btn-primary"%>
+    <%end%>
+  </div>
+  <div class="col-sm-3 col-lg-4"></div>
+</div>

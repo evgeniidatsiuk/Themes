@@ -1,0 +1,7 @@
+<h3>Theme:
+  <b><%=@theme.name%></b>
+</h3>
+<%=form_for @theme, url:theme_path(@theme.id) do |f|%>
+<%=render 'themes/form', f:f%>
+<%=f.submit "Update", class:"btn btn-primary"%>
+<%end%>
