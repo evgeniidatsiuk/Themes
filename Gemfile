@@ -54,6 +54,12 @@ gem 'client_side_validations-simple_form'
 
 group :development, :test do
   # Call 'byebug' anywh ere in the code to stop execution and get a debugger console
+ 
+
+  gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3'
 end
