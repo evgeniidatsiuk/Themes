@@ -18,12 +18,12 @@
   <% if user_signed_in? %>
 
     <% if current_user.userparam.nil? %>
-      
-      <li class="nav-item"><%= link_to "Profile", new_userparam_path, class:"nav-link"%></li>
+
+      <li class="nav-item"><%= link_to t("userparam"), new_userparam_path, class:"nav-link"%></li>
 
     <% else %>
 
-      <li class="nav-item"><%= link_to "Profile", userparam_path(current_user.id), class:"nav-link"%></li>
+      <li class="nav-item"><%= link_to t("userparam") , userparam_path(current_user.id), class:"nav-link"%></li>
 
     <% end %>
 
@@ -38,6 +38,13 @@
 
   <% end %>
   </ul>
+  <li class="nav-lang is-first text-sm-center">
+<% if I18n.locale == :uk %>
+<%= link_to 'EN', { locale: :en }, { class: 'btn btn-main-ghost' } %>
+<% else %>
+<%= link_to 'UA', { locale: :uk }, { class: 'btn btn-main-ghost' } %>
+<% end %>
+</li>
 </nav>
 
 <p class="notice"><%= notice %></p>

@@ -1,0 +1,15 @@
+uk:
+  activerecord:
+    models:
+      theme:
+      userparam:
+    attributes:
+      theme:
+        name: "Назва"
+        description: "Опис"
+        download: "Завантажити"
+        photos: "Фото"
+      userparam:
+        firstname: "Ім'я"
+        lastname: "Прізвище"
+        age: "Ім'я"
