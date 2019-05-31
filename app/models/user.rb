@@ -7,9 +7,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :userparam
-  has_many :themes
-  has_many :comments
+  has_one :userparam, dependent: :destroy
+  has_many :themes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
   # validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
@@ -23,12 +23,6 @@ class User < ApplicationRecord
     conditions = warden_conditions.dup
     login = conditions.delete(:login)
     where(conditions).where(['lower(nickname) = :value OR lower(email) = :value', { value: login.strip.downcase }]).first
-  end
-
-  def self.send_reset_password_instructions(attributes = {})
-    recoverable = find_recoverable_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
-    recoverable.send_reset_password_instructions if recoverable.persisted?
-    recoverable
   end
 
   def self.find_recoverable_or_initialize_with_errors(required_attributes, attributes, error = :invalid)
@@ -45,17 +39,6 @@ class User < ApplicationRecord
         record = where(attributes).first
       end
     end
-
-    unless record
-      record = new
-
-      required_attributes.each do |key|
-        value = attributes[key]
-        record.send("#{key}=", value)
-        record.errors.add(key, value.present? ? error : :blank)
-      end
-    end
-    record
   end
 
   def self.find_record(login)

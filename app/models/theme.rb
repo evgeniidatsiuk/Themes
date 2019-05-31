@@ -1,8 +1,8 @@
 class Theme < ApplicationRecord
   belongs_to :user
-  has_and_belongs_to_many :systems
-  has_many :tags, as: :object
-  has_many :comments
+  has_and_belongs_to_many :systems, dependent: :destroy
+  has_many :tags, as: :object, dependent: :destroy
+  has_many :comments, dependent: :destroy
   mount_uploaders :photos, PhotoUploader
   serialize :photos, JSON # If you use SQLite, add this line.
 

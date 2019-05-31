@@ -1,1 +1,12 @@
-<%= f.text_area :text, size: "12x2" %><br /> 
+Author:
+<%= comment.user.userparam.username%><br>
+<%=comment.text%><br>
+Created:
+<%= comment.created_at.to_date.strftime("%d %B, %Y ") %><hr>
+
+<% if user_signed_in? && comment.user.id == current_user.id %>
+  <%= link_to "delete", comment_path(comment.id), method: :delete %>
+<% end%>
+<ul>
+  <%# render comment.comments %>
+</ul>

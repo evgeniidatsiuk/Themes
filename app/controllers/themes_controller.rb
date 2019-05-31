@@ -48,6 +48,7 @@ class ThemesController < ApplicationController
   def show
     @theme.views += 1
     @theme.save
+    @comments=Comment.where(theme_id: @theme.id).order(created_at: :desc)
   end
 
   private
