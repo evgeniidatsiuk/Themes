@@ -28,9 +28,9 @@ Download:<br>
 <%= link_to "Download theme", "http://#{@theme.download}"%>
 <hr>
 <br><br>
-<%= link_to "like", like_path(@theme.id)%>
+<%= link_to "like", theme_like_path(@theme.id)%>
 <%= @theme.likes.length %>|<br>
-<%= link_to "dislike", dislike_path(@theme.id) %>
+<%= link_to "dislike", theme_dislike_path(@theme.id) %>
 <%= @theme.dislikes.length %>
 
 <% if user_signed_in? %>

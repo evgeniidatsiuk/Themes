@@ -54,14 +54,16 @@ ActiveRecord::Schema.define(version: 2019_06_04_193337) do
 
   create_table "dislikes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "theme_id"
+    t.integer "object_id"
+    t.string "object_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "theme_id"
+    t.integer "object_id"
+    t.string "object_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -10,6 +10,19 @@ class CommentsController < ApplicationController
     comment.destroy
     redirect_back(fallback_location: root_path)
   end
+  def comment_like
+  if !comment.likes.find_by(user_id: current_user.id)
+    comment.likes.create(user_id: current_user.id)
+  end
+  redirect_back(fallback_location: root_path)
+end
+
+def comment_dislike
+  if !comment.dislikes.find_by(user_id: current_user.id)
+    comment.dislikes.create(user_id: current_user.id)
+  end
+  redirect_back(fallback_location: root_path)
+end
 
   private
 

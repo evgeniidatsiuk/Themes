@@ -1,6 +1,6 @@
 class ThemesController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
-  before_action :find_theme, only: %i[show edit update]
+  before_action :find_theme, only: %i[show edit update theme_like theme_dislike]
 
   def index
     @themes = Theme.all
@@ -28,16 +28,14 @@ class ThemesController < ApplicationController
     end
   end
 
-  def like
-    @theme = Theme.find(params[:id])
+  def theme_like
     if !@theme.likes.find_by(user_id: current_user.id)
       @theme.likes.create(user_id: current_user.id)
     end
     redirect_back(fallback_location: root_path)
   end
 
-  def dislike
-    @theme = Theme.find(params[:id])
+  def theme_dislike
     if !@theme.dislikes.find_by(user_id: current_user.id)
       @theme.dislikes.create(user_id: current_user.id)
     end

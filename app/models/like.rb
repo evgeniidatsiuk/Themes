@@ -1,3 +1,3 @@
 class Like < ApplicationRecord
-  belongs_to :theme
+  belongs_to :object, polymorphic: true
 end

@@ -2,7 +2,8 @@ class CreateDislikes < ActiveRecord::Migration[5.2]
   def change
     create_table :dislikes do |t|
       t.integer :user_id
-      t.integer :theme_id
+      t.integer :object_id
+      t.string :object_type
 
       t.timestamps
     end
