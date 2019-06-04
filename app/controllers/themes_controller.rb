@@ -9,7 +9,6 @@ class ThemesController < ApplicationController
 
   def new
     @systems = System.all
-
     @theme = Theme.new
   end
 
@@ -17,10 +16,8 @@ class ThemesController < ApplicationController
     @systems = System.find(params[:system_ids])
     @all_tags = params[:theme][:all_tags]
     @theme = current_user.themes.build(theme_params)
-
     if @theme.save
       @theme.systems = @systems
-
       Tag.all_tags(@theme, @all_tags)
       redirect_to theme_path(@theme.id)
     else
@@ -31,6 +28,10 @@ class ThemesController < ApplicationController
   def theme_like
     if !@theme.likes.find_by(user_id: current_user.id)
       @theme.likes.create(user_id: current_user.id)
+      else
+    #if  @theme.likes.find_by(user_id: current_user.id) && @theme.likes.exists?
+      @like = @theme.likes.find_by(user_id: current_user.id)
+      @like.destroy
     end
     redirect_back(fallback_location: root_path)
   end
@@ -38,9 +39,13 @@ class ThemesController < ApplicationController
   def theme_dislike
     if !@theme.dislikes.find_by(user_id: current_user.id)
       @theme.dislikes.create(user_id: current_user.id)
+    else
+      @dislike = @theme.dislikes.find_by(user_id: current_user.id)
+      @dislike.destroy
     end
     redirect_back(fallback_location: root_path)
   end
+
   def edit
     @systems = System.all
   end
@@ -73,4 +78,8 @@ class ThemesController < ApplicationController
   def find_theme
     @theme = Theme.find(params[:id])
   end
+  #def liked?
+   # Like.where(user_id: current_user.id, theme_id:
+    #    params[:theme_id]).exists?
+  #end
 end

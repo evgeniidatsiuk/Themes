@@ -7,9 +7,9 @@ Created:
 <% if user_signed_in? && comment.user.id == current_user.id %>
   <%= link_to "delete", comment_path(comment.id), method: :delete %>
 <% end%>
-<%= link_to "like", comment_like_path(comment.id)%>
+<%= link_to "like comment", comment_like_path(comment.id)%>
 <%= comment.likes.length %>|<br>
-<%= link_to "dislike", comment_dislike_path(comment.id) %>
+<%= link_to "dislike comment", comment_dislike_path(comment.id) %>
 <%= comment.dislikes.length %>
 <ul>
   <%# render comment.comments %>

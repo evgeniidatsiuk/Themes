@@ -11,15 +11,25 @@ class CommentsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
   def comment_like
-  if !comment.likes.find_by(user_id: current_user.id)
-    comment.likes.create(user_id: current_user.id)
-  end
+    @comment = Comment.find(params[:id])
+  if !@comment.likes.find_by(user_id: current_user.id)
+    @comment.likes.create(user_id: current_user.id)
+  else
+    @like = @comment.likes.find_by(user_id: current_user.id)
+    if !@like.nil?
+    @like.destroy
+      end
+    end
   redirect_back(fallback_location: root_path)
 end
 
 def comment_dislike
-  if !comment.dislikes.find_by(user_id: current_user.id)
-    comment.dislikes.create(user_id: current_user.id)
+  @comment = Comment.find(params[:id])
+  if !@comment.dislikes.find_by(user_id: current_user.id)
+    @comment.dislikes.create(user_id: current_user.id)
+  else
+    @dislike = @comment.dislikes.find_by(user_id: current_user.id)
+    @dislike.destroy
   end
   redirect_back(fallback_location: root_path)
 end

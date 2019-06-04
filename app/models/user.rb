@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_one :userparam, dependent: :destroy
   has_many :themes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, as: :object, dependent: :destroy
+  has_many :dislikes, as: :object, dependent: :destroy
 
   validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
   # validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
