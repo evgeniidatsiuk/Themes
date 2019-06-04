@@ -19,7 +19,6 @@ System:
 
 Views :
 <%= @theme.views %><br>
-
 Description:<%= @theme.description%>
 <br>
 Tags:<br>
@@ -29,6 +28,10 @@ Download:<br>
 <%= link_to "Download theme", "http://#{@theme.download}"%>
 <hr>
 <br><br>
+<%= link_to "like", like_path(@theme.id)%>
+<%= @theme.likes.length %>|<br>
+<%= link_to "dislike", dislike_path(@theme.id) %>
+<%= @theme.dislikes.length %>
 
 <% if user_signed_in? %>
 <%= render 'comments/form'%>

@@ -15,9 +15,10 @@ System:
 Views :
 <%= theme.views %><br>
 Comments :
-<%= Comment.where(object: theme).count%>
 <br>
-<%= link_to "More", theme_path(theme.id)%>
-
+<%= link_to "like", like_path(theme.id)%>
+<%= theme.likes.length %>|<br>
+<%= link_to "dislike", dislike_path(theme.id) %>
+<%= theme.dislikes.length %>
 <hr>
 <br>

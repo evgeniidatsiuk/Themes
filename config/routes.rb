@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :themes
   resources :categories
   resources :comments
+
+  get 'theme/like/:id', 	 to: 'themes#like', as: 'like'
+  get 'theme/dislike/:id', to: 'themes#dislike', as: 'dislike'
 end
   #get '/:system/:name', to: 'systems#category', as: 'category'
 

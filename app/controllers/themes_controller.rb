@@ -28,6 +28,21 @@ class ThemesController < ApplicationController
     end
   end
 
+  def like
+    @theme = Theme.find(params[:id])
+    if !@theme.likes.find_by(user_id: current_user.id)
+      @theme.likes.create(user_id: current_user.id)
+    end
+    redirect_back(fallback_location: root_path)
+  end
+
+  def dislike
+    @theme = Theme.find(params[:id])
+    if !@theme.dislikes.find_by(user_id: current_user.id)
+      @theme.dislikes.create(user_id: current_user.id)
+    end
+    redirect_back(fallback_location: root_path)
+  end
   def edit
     @systems = System.all
   end
