@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :login
-  after_create :create_userparam
+  after_create :create_userparam, :welcome_send
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -14,8 +14,9 @@ class User < ApplicationRecord
   has_many :dislikes, as: :object, dependent: :destroy
   has_many :chosens
 
-
   acts_as_messageable
+
+
 
   validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
   # validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
@@ -54,5 +55,8 @@ class User < ApplicationRecord
   def mailboxer_email(object)
     nil
   end
-
+  
+  def welcome_send
+    WelcomeMailer.welcome_email(self).deliver
+  end
 end
