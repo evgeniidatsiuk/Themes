@@ -14,6 +14,9 @@ class User < ApplicationRecord
   has_many :dislikes, as: :object, dependent: :destroy
   has_many :chosens
 
+
+  acts_as_messageable
+
   validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
   # validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
 
@@ -47,4 +50,9 @@ class User < ApplicationRecord
   def self.find_record(login)
     where(['username = :value OR email = :value', { value: login }]).first
   end
+
+  def mailboxer_email(object)
+    nil
+  end
+
 end

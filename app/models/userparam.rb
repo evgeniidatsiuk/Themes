@@ -16,4 +16,8 @@ class Userparam < ApplicationRecord
   def chosens
     user.chosens
   end
+
+  def user_id
+    user.id
+  end
 end

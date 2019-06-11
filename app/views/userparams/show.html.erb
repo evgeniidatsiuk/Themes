@@ -11,6 +11,7 @@
 
 				<%=link_to "Edit Profile", edit_userparam_path(@userparam.id), class:"btn btn-sm btn-block btn-primary"%><br>
 				<%=link_to "Settings", edit_user_registration_path, class:"btn btn-sm btn-block btn-primary"%><br>
+				<%= link_to "New Conversation", new_conversation_path, class:"btn btn-sm btn-block btn-primary" %>
 
 			<%end%>
 
@@ -72,7 +73,6 @@
 		<div class="col-lg-3"></div>
 	</div>
 	<!-- /.row -->
-
 	Chosens:
 	<br>
 	<% @userparam.user.chosens.each do |x| %>

@@ -6,10 +6,10 @@
 Title:<%= @theme.name%><br>
 
 Author:
-<%= link_to @theme.user.userparam.username, userparam_path(@theme.user.userparam)%><br>
+<%= link_to @theme.user.userparam.username, userparam_path(@theme.user.userparam.id)%><br>
 
 <% @theme.photos.each do |x| %>
-  <%= image_tag x.url[0] %>
+  <%= image_tag x.url %>
 <% end %>
 
 System:

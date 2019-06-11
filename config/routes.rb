@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :themes
   resources :categories
   resources :comments
+  resources :conversations do
+  resources :messages
+  end
 
   get 'theme/theme_like/:id', 	     to: 'themes#theme_like',        as: 'theme_like'
   get 'theme/theme_dislike/:id',     to: 'themes#theme_dislike',     as: 'theme_dislike'
