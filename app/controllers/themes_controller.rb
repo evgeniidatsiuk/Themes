@@ -1,6 +1,6 @@
 class ThemesController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
-  before_action :find_theme, only: %i[show edit update theme_like theme_dislike]
+  before_action :find_theme, only: %i[show edit update theme_like theme_dislike chosen]
 
   def index
     @themes = Theme.all
@@ -44,6 +44,18 @@ class ThemesController < ApplicationController
       @dislike.destroy
     end
     redirect_back(fallback_location: root_path)
+  end
+
+  def chosen
+    if !@theme.chosens.find_by(user_id: current_user.id)
+     @theme.chosens.create(user_id: current_user.id)
+         redirect_to userparam_path(current_user.id)
+   else
+     @chosen = @theme.chosens.find_by(user_id: current_user.id)
+     @chosen.destroy
+         redirect_back(fallback_location: root_path)
+    end
+
   end
 
   def edit

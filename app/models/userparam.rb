@@ -12,4 +12,8 @@ class Userparam < ApplicationRecord
     username = user.nickname
     username ||= user.email.split('@').first
   end
+
+  def chosens
+    user.chosens
+  end
 end

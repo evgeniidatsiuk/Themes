@@ -7,17 +7,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :userparam, dependent: :destroy
-  has_many :themes, dependent: :destroy
-  has_many :comments, dependent: :destroy
-  has_many :likes, as: :object, dependent: :destroy
+  has_one  :userparam,             dependent: :destroy
+  has_many :themes,                dependent: :destroy
+  has_many :comments,              dependent: :destroy
+  has_many :likes, as: :object,    dependent: :destroy
   has_many :dislikes, as: :object, dependent: :destroy
+  has_many :chosens
 
   validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
   # validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
 
   def create_userparam
-    @userparam = Userparam.create(user_id: id, firstname: "Your FirstName", lastname: "Your LastName", age: 1)
+    @userparam = Userparam.create(user_id: id, firstname: "user#{id}", lastname: "user#{id}", age: 18)
     @userparam.save
    end
 

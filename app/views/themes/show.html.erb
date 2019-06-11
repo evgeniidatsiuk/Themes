@@ -32,15 +32,17 @@ Download:<br>
 <%= @theme.likes.length %>|<br>
 <%= link_to "dislike", theme_dislike_path(@theme.id) %>
 <%= @theme.dislikes.length %>
+<br>
+<%= link_to "To Chosen", chosen_path(@theme.id) %>
 
 <% if user_signed_in? %>
-<%= render 'comments/form'%>
+  <%= render 'comments/form'%>
 <% else %>
-<br>
-Want to create a new comment?<br>
-<%= link_to "Login", new_user_session_path %>
-or
-<%= link_to "Registration", new_user_registration_path %>
+  <br>
+  Want to create a new comment?<br>
+  <%= link_to "Login", new_user_session_path %>
+  or
+  <%= link_to "Registration", new_user_registration_path %>
 
 <% end%>
 
