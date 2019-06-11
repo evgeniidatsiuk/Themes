@@ -8,12 +8,15 @@ class Theme < ApplicationRecord
   has_many :dislikes, as: :object,  dependent: :destroy
   has_many :chosens
 
+  scope :random, -> { order('random()') }
+
   mount_uploaders :photos, PhotoUploader
   serialize :photos, JSON
 
-  validates :name, presence: true
+  validates :name,        presence: true
   validates :description, presence: true
-  validates :download, presence: true
+  validates :download,    presence: true
+  validates :photos,      presence: true
 
 
   def all_tags

@@ -16,9 +16,7 @@ class CommentsController < ApplicationController
     @comment.likes.create(user_id: current_user.id)
   else
     @like = @comment.likes.find_by(user_id: current_user.id)
-    if !@like.nil?
     @like.destroy
-      end
     end
   redirect_back(fallback_location: root_path)
 end

@@ -29,7 +29,6 @@ class ThemesController < ApplicationController
     if !@theme.likes.find_by(user_id: current_user.id)
       @theme.likes.create(user_id: current_user.id)
       else
-    #if  @theme.likes.find_by(user_id: current_user.id) && @theme.likes.exists?
       @like = @theme.likes.find_by(user_id: current_user.id)
       @like.destroy
     end
@@ -64,7 +63,6 @@ class ThemesController < ApplicationController
 
   def update
     @systems = System.find(params[:system_ids])
-#   @theme.systems.clear
     @theme.systems = @systems
     @theme.update(theme_params)
     redirect_to theme_path(@theme.id)
@@ -79,6 +77,7 @@ class ThemesController < ApplicationController
     @theme.views += 1
     @theme.save
     @comments=Comment.where(theme_id: @theme.id).order(created_at: :desc)
+    @theme_recommendation = Theme.random.limit(6)
   end
 
   private
@@ -90,8 +89,4 @@ class ThemesController < ApplicationController
   def find_theme
     @theme = Theme.find(params[:id])
   end
-  #def liked?
-   # Like.where(user_id: current_user.id, theme_id:
-    #    params[:theme_id]).exists?
-  #end
 end

@@ -14,8 +14,4 @@ class SystemsController < ApplicationController
     end
     @categories = Category.where(id: @categories)
   end
-
-  # def category
-  #  @tags=.where(system_id: System.find_by_name(params[:name]).id)
-  # end
 end
