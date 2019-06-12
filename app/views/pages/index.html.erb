@@ -1,4 +1,28 @@
 <br><br>
-<center>
-  <h3>The Earth goes around the Sun</h3>
-</center>
+Недавно загружені теми:<br>
+<% @themes.last(5).each do |theme| %>
+  Назва теми:
+  <%= theme.name%><br>
+  Картинка:
+  <% theme.photos.each do |x| %>
+    <%= image_tag x.url[0] %>
+  <% end %>
+  <br>
+  OS:
+  <br>
+  <% theme.systems.each do |system| %>
+    <%= link_to system.name, system_path(system.name) %><br>
+  <% end %><hr>
+<% end %>
+<br>
+<hr>
+Недавно загружені коментарі:
+<% @comments.last(5).each do |comment| %>
+  Користувач:
+  <%= link_to comment.user.userparam.username, userparam_path(comment.user.userparam.id)%><br>
+  Коментар до теми:
+  <%= link_to comment.theme.name, theme_path(comment.theme.id)%>
+  Створено:
+  <%= comment.created_at.to_date.strftime("%d %B, %Y ") %>
+  <hr>
+<%end%>
