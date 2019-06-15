@@ -1,11 +1,5 @@
 @import 'bootstrap';
 
-.login-page {
-    width: 360px;
-    padding: 8% 0 0;
-    margin: auto;
-    background-color: #FFFFFF;
-}
 .login-form, .registration-form {
     position: relative;
     z-index: 1;
@@ -31,7 +25,7 @@
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #88cc9c;
+    background: #ff8ef3;
     width: 100%;
     border: 0;
     padding: 15px;
@@ -42,7 +36,7 @@
     cursor: pointer;
 }
 .btn-primary:hover,.btn-primary:active,.btn-primary:focus {
-    background: #60ba7a !important;
+    background: #ff82e7 !important;
     box-shadow:none !important;
     outline:0px !important;
 }
@@ -52,9 +46,9 @@
     outline: 0;
     background: #FFFFFF;
     width: 100%;
-    border: 1px;
+    border: 0;
     padding: 15px;
-    color: #88cc9c;
+    color: #ff8ef3;
     font-size: 14px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
@@ -62,8 +56,9 @@
 }
 .btn-secondary:hover,.btn-secondary:active,.btn-secondary:focus {
     font-weight: bold !important;
-    color: #88cc9c !important;
+    color: #ff82e7 !important;
     background: #FFFFFF !important;
+    border: 1px solid #ff8ef3 !important;
     box-shadow:none !important;
     outline:0px !important;
 }
@@ -103,10 +98,6 @@
   body {
     font-family: "Roboto", sans-serif;
   }
-
-.user-profile {
-    
-}
 
 .align-center, .center {
     text-align: center!important;

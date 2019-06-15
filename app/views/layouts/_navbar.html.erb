@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color:#ffeafb;">
   <a class="navbar-brand">THEMES</a>
   <ul class="navbar-nav ml-auto">
     <li class="nav-item"><%= link_to "Home", root_path, class:"nav-link" %></li>
@@ -18,11 +18,11 @@
 
       <% if current_user.userparam.nil? %>
 
-        <li class="nav-item"><%= link_to t("userparam"), new_userparam_path, class:"nav-link"%></li>
+        <li class="nav-item"><%= link_to "Profile", new_userparam_path, class:"nav-link"%></li>
 
       <% else %>
 
-        <li class="nav-item"><%= link_to t("userparam") , userparam_path(current_user.id), class:"nav-link"%></li>
+        <li class="nav-item"><%= link_to "Profile" , userparam_path(current_user.id), class:"nav-link"%></li>
 
         <li class="nav-item"><%= link_to "Messages" , conversations_path, class:"nav-link"%></li>
 
