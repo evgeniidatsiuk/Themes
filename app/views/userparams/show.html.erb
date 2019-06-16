@@ -9,9 +9,9 @@
 
 			<%if user_signed_in? && current_user.id == @userparam.id%>
 
-				<%=link_to "Edit Profile", edit_userparam_path(@userparam.id), class:"btn btn-sm btn-block btn-primary"%><br>
-				<%=link_to "Settings", edit_user_registration_path, class:"btn btn-sm btn-block btn-primary"%><br>
-				<%= link_to "New Conversation", new_conversation_path, class:"btn btn-sm btn-block btn-primary" %>
+				<%=link_to t(:edit), edit_userparam_path(@userparam.id), class:"btn btn-sm btn-block btn-primary"%><br>
+				<%=link_to t(:settings), edit_user_registration_path, class:"btn btn-sm btn-block btn-primary"%><br>
+				<%= link_to t(:nconv), new_conversation_path, class:"btn btn-sm btn-block btn-primary" %>
 
 			<%end%>
 
@@ -20,15 +20,14 @@
 
 		<div class="col-sm-6 col-lg-3">
 			<h4 class="blue">
-				<span class="middle">Welcome to
-					<%=@userparam.username%>
-					profile</span>
+				<span class="middle"><%= t(:welcometo,
+					user: @userparam.username)%></span>
 			</h4>
 
 			<div class="profile-user-info">
 				<div class="profile-info-row">
 					<div class="profile-info-name">
-						Username
+						<%= t(:nickname)%>
 					</div>
 
 					<div class="profile-info-value">
@@ -38,7 +37,7 @@
 
 				<div class="profile-info-row">
 					<div class="profile-info-name">
-						First Name
+						<%= t(:fn)%>
 					</div>
 
 					<div class="profile-info-value">
@@ -48,7 +47,7 @@
 
 				<div class="profile-info-row">
 					<div class="profile-info-name">
-						Last Name
+						<%= t(:ln)%>
 					</div>
 
 					<div class="profile-info-value">
@@ -58,7 +57,7 @@
 
 				<div class="profile-info-row">
 					<div class="profile-info-name">
-						Age
+						<%= t(:age)%>
 					</div>
 
 					<div class="profile-info-value">
