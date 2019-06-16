@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
 
 
   def default_url_options
-      { locale: I18n.locale }
+    { locale: I18n.locale }
   end
 
   def set_locale
-   I18n.locale = params[:locale] || I18n.default_locale
-   Rails.application.routes.default_url_options[:locale]=I18n.locale
+    I18n.locale = params[:locale] || I18n.default_locale
+    Rails.application.routes.default_url_options[:locale]=I18n.locale
   end
 
   protected
@@ -32,6 +32,5 @@ class ApplicationController < ActionController::Base
       # :user is the scope we are authenticating
       store_location_for(:user, request.fullpath)
     end
-
 
 end

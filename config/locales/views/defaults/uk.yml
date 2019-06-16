@@ -1,5 +1,8 @@
 # ruby encoding: utf-8
 uk:
-  userparam: "Профіль"
-  theme: "Тема"
-  logout: "Вийти"
+  home: "Домашня сторiнка"
+  themes: "Теми"
+  profile: "Профіль"
+  add: "Додати тему"
+  logout: "Вихiд"
+  login: "Вхiд"
