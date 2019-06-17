@@ -1,27 +1,57 @@
-<br><br>
-<%= t(:nthemes)%><br>
-<% @themes.last(5).each do |theme| %>
-  <%= t(:title)%>
-  <%= theme.name%><br>
-  <% theme.photos.each do |x| %>
-    <%= image_tag x.url[0] %>
-  <% end %>
-  <br>
-  <%= t(:system)%>
-  <br>
-  <% theme.systems.each do |system| %>
-    <%= link_to system.name, system_path(system.name) %><br>
-  <% end %><hr>
-<% end %>
-<br>
-<hr>
-<%= t(:ncomments)%>
-<% @comments.last(5).each do |comment| %>
-  <%= t(:user)%>
-  <%= link_to comment.user.userparam.username, userparam_path(comment.user.userparam.id)%><br>
-  <%= t(:commentto)%>
-  <%= link_to comment.theme.name, theme_path(comment.theme.id)%>
-  <%= t(:created)%>
-  <%= comment.created_at.to_date.strftime("%d %B, %Y ") %>
-  <hr>
-<%end%>
+<div class="user-profile container-fluid">
+
+	<div class="row">
+		<div class="col-lg-4">
+      <div class="profile-user-info">
+
+				<div class="profile-info-row">
+					<div class="profile-info-name">
+						<%= t(:nthemes)%>
+					</div>
+
+					<div class="profile-info-value">
+						<span>
+              <% @themes.last(5).each do |theme| %>
+                <%= t(:title)%>
+                <%= theme.name%><br>
+                <% theme.photos.each do |x| %>
+                  <%= image_tag x.url, style:"width:400px;" %>
+                <% end %>
+                <br>
+                <%= t(:system)%>
+                <br>
+                <% theme.systems.each do |system| %>
+                  <%= link_to system.name, system_path(system.name) %><br>
+                <% end %><hr>
+              <% end %>
+            </span>
+					</div>
+				</div>
+
+        <div class="profile-info-row">
+					<div class="profile-info-name">
+						<%= t(:ncomments)%>
+					</div>
+
+					<div class="profile-info-value">
+						<span>
+              <% @comments.last(5).each do |comment| %>
+                <%= t(:user)%>
+                <%= link_to comment.user.userparam.username, userparam_path(comment.user.userparam.id)%><br>
+                <%= t(:commentto)%>
+                <%= link_to comment.theme.name, theme_path(comment.theme.id)%>
+                <%= t(:created)%>
+                <%= comment.created_at.to_date.strftime("%d %B, %Y ") %>
+                <hr>
+              <%end%>
+            </span>
+					</div>
+				</div>
+      </div>
+    </div>
+    
+    <div class="col-lg-8">
+      Here will be the About Illustration
+    </div>
+  </div>
+</div>

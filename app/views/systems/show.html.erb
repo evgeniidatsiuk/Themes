@@ -1,13 +1,25 @@
-<hr><br><%= render @categories %><br>
-<hr>
-<% if @themes == [] %>
-  <% if user_signed_in? %>
-    <%= link_to t(:add), new_theme_path%>
-  <% else %>
-    <%= t(:tocreate)%><br>
-    <%= link_to t(:login), new_user_session_path %>
+<div class="user-profile container-fluid">
 
-  <% end %>
-<% else %>
-  <%=render @themes%>
-<% end %>
+	<div class="row">
+		<div class="col-lg-4 pinkie-right">
+      <%= render @categories %>
+    </div>
+
+    <div class="col-sm-4 col-lg-4 pinkie-bottom">  
+
+      <% if @themes == [] %>
+        <% if user_signed_in? %>
+          <%= link_to t(:add), new_theme_path, class:"btn btn-default"%>
+        <% else %>
+          <%= t(:tocreate)%><br>
+          <%= link_to t(:login), new_user_session_path %>
+
+        <% end %>
+      <% else %>
+        <%=render @themes%>
+      <% end %>
+    </div>
+    <hr style="background-color:#ff82e7;">
+    <div class="col-lg-4 pinkie-left"></div>
+  </div>
+</div>

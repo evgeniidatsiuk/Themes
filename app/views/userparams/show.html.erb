@@ -66,41 +66,60 @@
 				</div>
 
 			</div>
+			
+			<h5 class="blue">
+				<span class="middle"><%= t(:chosen)%></span>
+			</h3>
+
+			<div class="profile-user-info">
+				<div class="profile-info-row">
+					<div class="profile-info-name">
+						<% @userparam.user.chosens.each do |x| %>
+						<%= t(:title)%>
+					</div>
+
+					<div class="profile-info-value">
+						<span><%= x.theme.name%></span>
+					</div>
+				</div>
+
+				<div class="profile-info-row">
+					<div class="profile-info-name"></div>
+					<div class="profile-info-value">
+						<% x.theme.photos.each do |x| %>
+							<span><%= image_tag x.url, style:"width:500px;" %></span>
+						<% end %>
+					</div>
+				</div>
+
+				<div class="profile-info-row">
+					<div class="profile-info-name">
+						<%= t(:system)%>
+					</div>
+
+					<div class="profile-info-value">
+						<span>
+							<% x.theme.systems.each do |system| %>
+								<%= system.name %><br>
+							<% end %>
+						</span>
+					</div>
+				</div>
+
+				<div class="profile-info-row">
+					<div class="profile-info-name">
+					</div>
+					<div class="profile-info-value">
+						<%= link_to t(:more), theme_path(x.theme.id), class:"btn btn-secondary"%>
+						<% end %>
+					</div>
+				</div>
+
+			</div>
 
 		</div>
 		<!-- /.col -->
 		<div class="col-lg-3"></div>
 	</div>
 	<!-- /.row -->
-	Chosens:
-	<br>
-	<% @userparam.user.chosens.each do |x| %>
-		<br>
-		Title:<br>
-		<%= x.theme.name%><br>
-
-		<% x.theme.photos.each do |x| %>
-			<%= image_tag x.url[0] %>
-		<% end %>
-		<br>
-		System:
-		<br>
-		<% x.theme.systems.each do |system| %>
-			<%= system.name %><br>
-		<% end %>
-
-		Views :
-		<%= x.theme.views %><br>
-		Comments :
-		<br>
-		<%= link_to "like", theme_like_path(x.theme.id)%>
-		<%= x.theme.likes.length %>|<br>
-		<%= link_to "dislike", theme_dislike_path(x.theme.id) %>
-		<%= x.theme.dislikes.length %>
-		<br>
-		<%= link_to "More", theme_path(x.theme.id)%>
-		<hr>
-		<br>
-	<% end %>
-
 </div>

@@ -1,16 +1,61 @@
-<%= t(:author)%>
-<%= comment.user.userparam.username%><br>
-<%=comment.text%><br>
-<%= t(:created)%>
-<%= comment.created_at.to_date.strftime("%d %B, %Y ") %><hr>
+	<div class="profile-info-row">
+		<div class="profile-info-name">
+			<%= t(:author)%>
+		</div>
 
-<% if user_signed_in? && comment.user.id == current_user.id %>
-  <%= link_to t(:delete), comment_path(comment.id), method: :delete %>
-<% end%>
-<%= link_to t(:like), comment_like_path(comment.id)%>
-<%= comment.likes.length %>|<br>
-<%= link_to t(:dislike), comment_dislike_path(comment.id) %>
-<%= comment.dislikes.length %>
-<ul>
-  <%# render comment.comments %>
-</ul>
+		<div class="profile-info-value">
+			<span><%= comment.user.userparam.username%></span>
+		</div>
+  </div>
+  <div class="profile-info-row">
+		<div class="profile-info-name">
+		</div>
+
+		<div class="profile-info-value">
+			<span><%=comment.text%></span>
+		</div>
+  </div>
+  <div class="profile-info-row">
+		<div class="profile-info-name">
+      <%= t(:created)%>
+		</div>
+
+		<div class="profile-info-value">
+			<span><%= comment.created_at.to_date.strftime("%d %B, %Y ") %></span>
+		</div>
+  </div>
+  <div class="profile-info-row">
+		<div class="profile-info-name">
+      <%= link_to t(:like), comment_like_path(comment.id)%>
+		</div>
+
+		<div class="profile-info-value">
+			<span>
+        <%= comment.likes.length %>
+      </span>
+		</div>
+  </div>
+  <div class="profile-info-row">
+		<div class="profile-info-name">
+      <%= link_to t(:dislike), comment_dislike_path(comment.id) %>
+		</div>
+
+		<div class="profile-info-value">
+			<span>
+        <%= comment.dislikes.length %>
+      </span>
+		</div>
+  </div>
+  <div class="profile-info-row">
+		<div class="profile-info-name">
+		</div>
+
+		<div class="profile-info-value">
+			<span>
+				<% if user_signed_in? && comment.user.id == current_user.id %>
+				<%= link_to t(:delete), comment_path(comment.id), method: :delete, class:"btn btn-secondary"%>
+				<% end%>
+      		</span>
+        </div>
+  </div>
+  <hr style="background-color:#ff82e7;">
