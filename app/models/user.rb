@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :comments,              dependent: :destroy
   has_many :likes, as: :object,    dependent: :destroy
   has_many :dislikes, as: :object, dependent: :destroy
-  has_many :chosens
+  has_many :chosens,               dependent: :destroy
 
   acts_as_messageable
 

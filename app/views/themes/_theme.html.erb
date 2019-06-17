@@ -25,7 +25,7 @@
 
 	<div class="profile-info-value">
 		<span>
-			<%theme.systems.each do |system|%>
+			<% theme.systems.each do |system|%>
         <%= system.name %><br>
       <%end%>
 		</span>
@@ -70,7 +70,7 @@
 
 <div class="profile-info-row">
   <div class="profile-info-name"></div>
-          
+
   <div class="profile-info-value">
     <%= link_to t(:more), theme_path(theme.id), class:"btn btn-secondary"%>
   </div>
