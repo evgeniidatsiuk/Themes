@@ -1,17 +1,23 @@
-<h1>New Conversation</h1>
+<div class="login-page" class="container" style="background-image: url(/assets/martin-jernberg-274716-unsplash.jpg); background-size:cover">
+  <div class="registration-form" class="form">
+    <div class="form-group">
+      <h4 class="blue"><%= t(:nconv)%></h4>
+    </div>
+    <%= form_for conversations_path, method: :post do |f| %>
 
-<%= form_tag conversations_path, method: :post do %>
-  <div>
-    <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :nickname) %>
+      <!--<div>
+        <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :nickname) %>
+      </div>-->
+
+      <div class="form-group" class="field">
+        <p><%= text_field_tag :subject, nil, placeholder: t(:subject), class: "input-sign input" %>
+      </div>
+
+      <div class="form-group" class="field">
+        <p><%= text_area_tag :body, nil, placeholder: t(:sayh), class: "input-sign input" %>
+      </div>
+
+      <%= f.submit t(:send), class:"btn btn-primary"%>
+    <% end %>
   </div>
-
-  <div>
-    <%= text_field_tag :subject, nil, placeholder: "Subject" %>
-  </div>
-
-  <div>
-    <%= text_area_tag :body, nil, placeholder: "Say hello" %>
-  </div>
-
-  <%= submit_tag %>
-<% end %>
+</div>

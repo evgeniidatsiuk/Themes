@@ -3,7 +3,6 @@
 .login-form, .registration-form {
     position: relative;
     z-index: 1;
-    background: #FFFFFF;
     max-width: 360px;
     margin: 0 auto 100px;
     padding: 45px;
@@ -108,82 +107,42 @@
 .btn-main-ghost:hover {
     color: #ff82e7 !important
 }
-.label {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    }
-    
-    .css-checkbox {
-          position: absolute; 
-        overflow: hidden; 
-        clip: rect(0 0 0 0); 
-        height:1px; 
-        width:1px; 
-        margin:-1px; 
-        padding:0;
-        border:0;
-    }
-    
-    .css-checkbox + .css-label {
-        padding-left:20px;
-        height:15px; 
-        display:inline-block;
-        line-height:15px;
-        background-repeat:no-repeat;
-        background-position: 0 0;
-        font-size:15px;
-        vertical-align:middle;
-        cursor:pointer;
-    }
-    
-    .css-checkbox:checked + .css-label {
-        background-position: 0 -15px;
-    }
-    
-    .css-label{
-        background-image:url(http://csscheckbox.com/checkboxes/dark-check-green.png);
-    }
-    .lite-x-cyan{background-image:url(http://csscheckbox.com/checkboxes/lite-x-cyan.png);}
 .container {
     position: relative;
     z-index: 1;
     max-width: 300px;
     margin: 0 auto;
 }
-  .container:before, .container:after {
+.container:before, .container:after {
     content: "";
     display: block;
     clear: both;
-  }
-  .container .info {
+}
+.container .info {
     margin: 50px auto;
     text-align: center;
-  }
-  .container .info h1 {
+}
+.container .info h1 {
     margin: 0 0 15px;
     padding: 0;
     font-size: 36px;
     font-weight: 300;
     color: #1a1a1a;
-  }
-  .container .info span {
+}
+.container .info span {
     color: #4d4d4d;
     font-size: 12px;
-  }
-  .container .info span a {
+}
+.container .info span a {
     color: #000000;
     text-decoration: none;
-  }
-  .container .info span .fa {
+}
+.container .info span .fa {
     color: #EF3B3A;
-  }
-  body {
+}
+body {
     font-family: "Roboto", sans-serif;
-  }
+}
 
 .align-center, .center {
     text-align: center!important;
@@ -296,11 +255,22 @@
 }
 
 .blue {
-    color: #478FCA!important
+    color: #ff82e7!important
 }
 
 .pinkie-right {
     background: linear-gradient(to right, rgba(255,234,251,1) 0%,rgba(255,234,251,0.6) 38%,rgba(255,255,255,1) 71%);
+    padding:10px;
+    border-right: 1px solid #ff8ef3;
+}
+
+.pinkie-right-sp{
+    background: linear-gradient(to right, rgba(255,234,251,1) 0%,rgba(255,234,251,0.6) 38%,rgba(255,255,255,1) 71%);
+    padding:10px;
+}
+
+.pinkie-left-sp {
+    background: linear-gradient(to left, rgba(255,234,251,1) 0%,rgba(255,234,251,0.6) 38%,rgba(255,255,255,1) 71%);
     padding:10px;
     border-right: 1px solid #ff8ef3;
 }

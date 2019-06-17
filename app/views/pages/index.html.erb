@@ -1,48 +1,70 @@
 <div class="user-profile container-fluid">
 
 	<div class="row">
-		<div class="col-lg-4">
+    <div class="col-1"></div>
+		<div class="col-lg-3">
       <div class="profile-user-info">
 
 				<div class="profile-info-row">
-					<div class="profile-info-name">
+					<div class="profile-info-name pinkie-left-sp">
 						<%= t(:nthemes)%>
 					</div>
 
-					<div class="profile-info-value">
+					<div class="profile-info-value pinkie-right-sp">
 						<span>
               <% @themes.last(5).each do |theme| %>
-                <%= t(:title)%>
-                <%= theme.name%><br>
+                <div class="profile-info-name">
+                  <%= t(:title)%>
+                </div>
+                <div class="profile-info-value">
+                  <%= theme.name%>
+                </div>
                 <% theme.photos.each do |x| %>
-                  <%= image_tag x.url, style:"width:400px;" %>
+                  <%= image_tag x.url, style:"width:300px;" %>
                 <% end %>
-                <br>
-                <%= t(:system)%>
-                <br>
-                <% theme.systems.each do |system| %>
-                  <%= link_to system.name, system_path(system.name) %><br>
-                <% end %><hr>
+                <div class="profile-info-name">
+                  <%= t(:system)%>
+                </div>
+                <div class="profile-info-value">
+                  <% theme.systems.each do |system| %>
+                  <%= link_to system.name, system_path(system.name) %>
+                <% end %>
+                </div>
               <% end %>
             </span>
 					</div>
 				</div>
-
+        
         <div class="profile-info-row">
-					<div class="profile-info-name">
+					<div class="profile-info-name pinkie-left-sp">
 						<%= t(:ncomments)%>
 					</div>
 
-					<div class="profile-info-value">
+					<div class="profile-info-value pinkie-right-sp">
 						<span>
               <% @comments.last(5).each do |comment| %>
-                <%= t(:user)%>
-                <%= link_to comment.user.userparam.username, userparam_path(comment.user.userparam.id)%><br>
-                <%= t(:commentto)%>
-                <%= link_to comment.theme.name, theme_path(comment.theme.id)%>
-                <%= t(:created)%>
-                <%= comment.created_at.to_date.strftime("%d %B, %Y ") %>
+                <div class="profile-info-name">
+                  <%= t(:user)%>
+                </div>
+                <div class="profile-info-value">
+                  <%= link_to comment.user.userparam.username, userparam_path(comment.user.userparam.id)%>
+                </div>
+                <br>
+                <div class="profile-info-name">
+                  <%= t(:commentto)%>
+                </div>
+                <div class="profile-info-value">
+                  <%= link_to comment.theme.name, theme_path(comment.theme.id)%>
+                </div>
+                <br>
+                <div class="profile-info-name">
+                  <%= t(:created)%>
+                </div>
+                <div class="profile-info-value">
+                  <%= comment.created_at.to_date.strftime("%d %B, %Y ") %>
+                </div>
                 <hr>
+                <br>
               <%end%>
             </span>
 					</div>
@@ -50,8 +72,9 @@
       </div>
     </div>
     
-    <div class="col-lg-8">
-      Here will be the About Illustration
+    <div class="col-lg-7 center">
+      <%= image_tag "/assets/about.jpg", style:"width:800px" %>
     </div>
+    <div class="col-1"></div>
   </div>
 </div>
