@@ -20,8 +20,7 @@
 
 		<div class="col-sm-6 col-lg-3">
 			<h4 class="blue">
-				<span class="middle"><%= t(:welcometo,
-					user: @userparam.username)%></span>
+				<span class="middle"><%= t(:welcometo, user: @userparam.username)%></span>
 			</h4>
 
 			<div class="profile-user-info">
@@ -66,51 +65,53 @@
 				</div>
 
 			</div>
-			
+
 			<h5 class="blue">
 				<span class="middle"><%= t(:chosen)%></span>
-			</h3>
+			</h5>
 
 			<div class="profile-user-info">
 				<div class="profile-info-row">
 					<div class="profile-info-name">
 						<% @userparam.user.chosens.each do |x| %>
-						<%= t(:title)%>
+							<%= t(:title)%>
+						</div>
+
+						<div class="profile-info-value">
+							<span><%= x.theme.name%></span>
+						</div>
 					</div>
 
-					<div class="profile-info-value">
-						<span><%= x.theme.name%></span>
-					</div>
-				</div>
-
-				<div class="profile-info-row">
-					<div class="profile-info-name"></div>
-					<div class="profile-info-value">
-						<% x.theme.photos.each do |x| %>
-							<span><%= image_tag x.url, style:"width:500px;" %></span>
-						<% end %>
-					</div>
-				</div>
-
-				<div class="profile-info-row">
-					<div class="profile-info-name">
-						<%= t(:system)%>
-					</div>
-
-					<div class="profile-info-value">
-						<span>
-							<% x.theme.systems.each do |system| %>
-								<%= system.name %><br>
+					<div class="profile-info-row">
+						<div class="profile-info-name"></div>
+						<div class="profile-info-value">
+							<% x.theme.photos.each do |x| %>
+								<span><%= image_tag x.url, style:"width:500px;" %></span>
 							<% end %>
-						</span>
+						</div>
 					</div>
-				</div>
 
-				<div class="profile-info-row">
-					<div class="profile-info-name">
+					<div class="profile-info-row">
+						<div class="profile-info-name">
+							<%= t(:system)%>
+						</div>
+
+						<div class="profile-info-value">
+							<span>
+								<% x.theme.systems.each do |system| %>
+									<%= system.name %><br>
+								<% end %>
+							</span>
+						</div>
 					</div>
-					<div class="profile-info-value">
-						<%= link_to t(:more), theme_path(x.theme.id), class:"btn btn-secondary"%>
+
+					<div class="profile-info-row">
+						<div class="profile-info-name"></div>
+						<div class="profile-info-value">
+							<%= link_to t(:more), theme_path(x.theme.id), class:"btn btn-secondary"%>
+								<span>
+									<%= link_to "Remove from Chosens", chosen_path(x.theme.id), class:"btn btn-primary"%>
+								</span>
 						<% end %>
 					</div>
 				</div>

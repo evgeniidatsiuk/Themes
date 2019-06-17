@@ -10,7 +10,7 @@
 </div>
 <div class="field">
   <%@systems.each do |system|%>
-      <%= check_box_tag('system_ids[]', system.id, checked = false) %>
+      <%= radio_button_tag 'system_ids[]', system.id, checked = true %>
       <%= f.label system.name%>
   <%end%>
 </div>
