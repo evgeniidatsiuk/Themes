@@ -62,6 +62,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3'
+  gem 'rails-controller-testing'
 end
 
 group :development do
