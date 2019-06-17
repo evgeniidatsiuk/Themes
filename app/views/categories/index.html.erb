@@ -1,12 +1,10 @@
 <br>
 <% if @categories == [] %>
   <% if user_signed_in? %>
-    <%= link_to "Add your Theme!", new_theme_path%>
+    <%= link_to t(:add), new_theme_path%>
   <% else %>
-    Want to create a new theme with tags?<br>
-    <%= link_to "Login", new_user_session_path %>
-    or
-    <%= link_to "Registration", new_user_registration_path %>
+    <%= t(:totag)%><br>
+    <%= link_to t(:login), new_user_session_path %>
 
   <% end %>
 <% else %>

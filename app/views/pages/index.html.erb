@@ -1,14 +1,13 @@
 <br><br>
-Недавно загружені теми:<br>
+<%= t(:nthemes)%><br>
 <% @themes.last(5).each do |theme| %>
-  Назва теми:
+  <%= t(:title)%>
   <%= theme.name%><br>
-  Картинка:
   <% theme.photos.each do |x| %>
     <%= image_tag x.url[0] %>
   <% end %>
   <br>
-  OS:
+  <%= t(:system)%>
   <br>
   <% theme.systems.each do |system| %>
     <%= link_to system.name, system_path(system.name) %><br>
@@ -16,13 +15,13 @@
 <% end %>
 <br>
 <hr>
-Недавно загружені коментарі:
+<%= t(:ncomments)%>
 <% @comments.last(5).each do |comment| %>
-  Користувач:
+  <%= t(:user)%>
   <%= link_to comment.user.userparam.username, userparam_path(comment.user.userparam.id)%><br>
-  Коментар до теми:
+  <%= t(:commentto)%>
   <%= link_to comment.theme.name, theme_path(comment.theme.id)%>
-  Створено:
+  <%= t(:created)%>
   <%= comment.created_at.to_date.strftime("%d %B, %Y ") %>
   <hr>
 <%end%>
