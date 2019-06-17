@@ -1,0 +1,21 @@
+en:
+  name: "Name"
+  link: "Link for download(after 'http://')"
+  description: "Description"
+  tags: "Tags"
+
+  title: "Title"
+  author: "Author"
+  system: "System"
+  views: "Views"
+  download: "Download"
+  downloadt: "Download theme"
+  like: "like"
+  dislike: "dislike"
+  tochosen: "To Chosen"
+
+  tocomment: "Want to create a new comment?"
+  sthemes: "Similar themes:"
+  comments: "Comments"
+  more: "More"
+  theme: "Theme"

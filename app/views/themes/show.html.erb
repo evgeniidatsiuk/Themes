@@ -1,48 +1,47 @@
 <br>
 <%if user_signed_in? && current_user.id == @theme.user_id%>
-  <%=link_to "Редагувати", edit_theme_path(@theme.id)%><br>
+  <%=link_to t(:edit), edit_theme_path(@theme.id)%><br>
 <%end%>
 
-Title:<%= @theme.name%><br>
+<%= t(:title)%>
+<%= @theme.name%><br>
 
-Author:
+<%= t(:author)%>
 <%= link_to @theme.user.userparam.username, userparam_path(@theme.user.userparam.id)%><br>
 
 <% @theme.photos.each do |x| %>
-  <%= image_tag x.url %>
+  <%= image_tag x.url,  style:" width:500px;" %>
 <% end %>
 
-System:
+<%= t(:system)%>
 <%@theme.systems.each do |system|%>
   <%= system.name %><br>
 <%end%>
 
-Views :
+<%= t(:views)%>
 <%= @theme.views %><br>
-Description:<%= @theme.description%>
+<%= t(:description)%><%= @theme.description%>
 <br>
-Tags:<br>
+<%= t(:tags)%><br>
 <%= raw @theme.tags.map{ |tag| link_to tag.category.name, category_path(tag.category.name), class: 'font-weight-bold badge badge-secondary' }.join(' ') %>
 <br>
-Download:<br>
-<%= link_to "Download theme", "http://#{@theme.download}"%>
+<%= t(:download)%><br>
+<%= link_to t(:downloadt), "http://#{@theme.download}"%>
 <hr>
 <br><br>
-<%= link_to "like", theme_like_path(@theme.id)%>
+<%= link_to t(:like), theme_like_path(@theme.id)%>
 <%= @theme.likes.length %>|<br>
-<%= link_to "dislike", theme_dislike_path(@theme.id) %>
+<%= link_to t(:dislike), theme_dislike_path(@theme.id) %>
 <%= @theme.dislikes.length %>
 <br>
-<%= link_to "To Chosen", chosen_path(@theme.id) %>
+<%= link_to t(:tochosen), chosen_path(@theme.id) %>
 
 <% if user_signed_in? %>
   <%= render 'comments/form'%>
 <% else %>
   <br>
-  Want to create a new comment?<br>
-  <%= link_to "Login", new_user_session_path %>
-  or
-  <%= link_to "Registration", new_user_registration_path %>
+  <%= t(:tocomment)%><br>
+  <%= link_to t(:login), new_user_session_path %>
 
 <% end%>
 
@@ -52,5 +51,5 @@ Download:<br>
     <%=render 'comments/comment', comment:comment %>
   <%end%>
 </ul>
-Similar themes:
+<%= t(:sthemes)%>
 <%= render @theme_recommendation%>
