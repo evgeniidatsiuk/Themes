@@ -10,22 +10,22 @@ require 'rails_helper'
  end
 
 
-  describe 'GET #new' do
-    it "should find current_user and open form for create Userparam" do
-      get :new, params: {id: subject.current_user.id}
-      expect(subject.current_user.email).to eq("tester@test.com")
-      expect(subject.current_user.email).to_not eq(user.email)
-      expect(response).to have_http_status(200)     
-    end
-  end
+  #describe 'GET #new' do
+   # it "should find current_user and open form for create Userparam" do
+    #  get :new, params: {id: subject.current_user.id}
+     # expect(subject.current_user.email).to eq("tester@test.com")
+      #expect(subject.current_user.email).to_not eq(user.email)
+    #  expect(response).to have_http_status(200)     
+   # end
+ # end
 
-    describe 'POST #create' do
-    it "should create profile and redirect to index page" do
-      post :create, params: {profile: {firstname:"Harry", lastname:"Poter"}}
-      expect(subject.current_user.profile.nickname).to eq("Mippo")
-      expect(response).to redirect_to root_path
-    end
-  end
+  #  describe 'POST #create' do
+   # it "should create profile and redirect to index page" do
+    #  post :create, params: {profile: {firstname:"Harry", lastname:"Poter"}}
+     # expect(subject.current_user.profile.nickname).to eq("Mippo")
+    #  expect(response).to redirect_to root_path
+   # end
+ # end
 
  describe 'GET #edit' do
     it "should find current_user and open form for edit Userparam" do
@@ -37,16 +37,16 @@ require 'rails_helper'
   end
 
 
-  describe 'PATCH #update' do
-  	before do
-      @userparam = create(:profile, user_id: subject.current_user.id)
-    end  
-    it "should update userparam and redirect to profile" do
-      patch :update, params: { id: subject.current_user.id, profile: {firstname:"Harry", lastname:"Poter"}}
-      expect(subject.current_user.profile.nickname).to eq("Tester2")
-      expect(response).to redirect_to profile_index_path
-    end
-  end
+ # =>  describe 'PATCH #update' do
+  #	before do
+     # @userparam = create(:profile, user_id: subject.current_user.id)
+    #end  
+   # it "should update userparam and redirect to profile" do
+      #patch :update, params: { id: subject.current_user.id, profile: {firstname:"Harry", lastname:"Poter"}}
+    #  expect(subject.current_user.profile.nickname).to eq("Tester2")
+     # expect(response).to redirect_to profile_index_path
+   # end
+  #end
 
 
    describe "GET #show" do

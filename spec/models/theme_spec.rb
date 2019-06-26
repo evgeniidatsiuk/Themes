@@ -8,12 +8,14 @@ RSpec.describe Theme, type: :model do
   }
 
   describe "associations" do
-    it { should have_many(:comments) }
+    it { should have_many(:comments).dependent(:destroy)  }
     it { should have_many(:tags) }
     it { should have_and_belong_to_many(:systems) }
     it { should belong_to(:user) }
   end
 
+
+    
   context "validation" do
     it "is valid with valid attributes" do
       expect(subject).to be_valid
