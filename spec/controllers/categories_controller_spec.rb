@@ -9,7 +9,7 @@ require 'rails_helper'
        describe "GET index" do
         it "renders the actual template" do
           get :index
-        #  expect(response.body).to match Category.all
+        
         end
       end
     end

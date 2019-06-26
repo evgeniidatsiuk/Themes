@@ -34,6 +34,13 @@ RSpec.describe Theme, type: :model do
     end
     
     it { should validate_presence_of(:description) }
+
+     it "should not be valid without download" do
+       subject.download = nil
+       expect(subject).to_not be_valid
+    end
+    
+    it { should validate_presence_of(:download) }
   end
   
 end
