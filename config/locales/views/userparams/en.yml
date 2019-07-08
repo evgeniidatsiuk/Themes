@@ -1,0 +1,15 @@
+en:
+  avatar: "Avatar"
+  yfn: "Your First Name"
+  yln: "Your Last Name"
+  ya: "Your Age"
+
+  profile: "Profile"
+  create: "Create"
+
+  welcometo: "Welcome to %{user} profile"
+  settings: "Settings"
+  nconv: "New Conversation"
+  fn: "First Name"
+  ln: "Last Name"
+  age: "Age"

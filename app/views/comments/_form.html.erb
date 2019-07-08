@@ -1,0 +1,5 @@
+<%= form_for :comment, url:comments_path do |f| %>
+<%= f.text_field :text, class:"input"%>
+<%= f.hidden_field :theme_id, value: @theme.id %>
+<%= f.submit t(:comment), class:"btn btn-default" %>
+<%end%>

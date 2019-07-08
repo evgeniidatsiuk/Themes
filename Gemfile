@@ -52,6 +52,9 @@ gem 'simple_form'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 
+#Messages
+gem 'mailboxer'
+
 group :development, :test do
   # Call 'byebug' anywh ere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

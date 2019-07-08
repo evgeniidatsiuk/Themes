@@ -2,11 +2,11 @@
   <div class="col-sm-3 col-lg-4"></div>
   <div class="col-sm-6 col-lg-4">
     <h3 class="center">
-      <b><%=@userparam.username%></b> profile
+      <b><%= t(:edit)%></b>
     </h3>
     <%=simple_form_for @userparam, url:userparam_path(@userparam.id), validate: true do |f|%>
     <%=render 'userparams/form', f:f%>
-    <%=f.submit "Update", class:"btn btn-primary"%>
+    <%=f.submit t(:update), class:"btn btn-primary"%>
     <%end%>
   </div>
   <div class="col-sm-3 col-lg-4"></div>

@@ -1,58 +1,176 @@
-<br>
-<%if user_signed_in? && current_user.id == @theme.user_id%>
-  <%=link_to "Редагувати", edit_theme_path(@theme.id)%><br>
-<%end%>
+<div class="user-profile container-fluid">
 
-Title:<%= @theme.name%><br>
+	<div class="row">
+		<div class="col-lg-1"></div>
 
-Author:
-<%= link_to @theme.user.userparam.username, userparam_path(@theme.user.userparam)%><br>
+    <div class="col-sm-6 col-lg-5" style="background: linear-gradient(to bottom, rgba(255,234,251,1) 0%,rgba(255,234,251,0.6) 38%,rgba(255,255,255,1) 71%);">
 
-<% @theme.photos.each do |x| %>
-  <%= image_tag x.url[0] %>
-<% end %>
+      <div class="profile-user-info">
+		<div class="profile-info-row">
+			<div class="profile-info-name">
+				<%= t(:title)%>
+			</div>
 
-System:
-<%@theme.systems.each do |system|%>
-  <%= system.name %><br>
-<%end%>
+			<div class="profile-info-value">
+				<span><%= @theme.name%></span>
+			</div>
+		</div>
 
-Views :
-<%= @theme.views %><br>
+        <div class="profile-info-row">
+			<div class="profile-info-name">
+				<%= t(:author)%>
+			</div>
 
-Description:<%= @theme.description%>
-<br>
-Tags:<br>
-<%= raw @theme.tags.map{ |tag| link_to tag.category.name, category_path(tag.category.name), class: 'font-weight-bold badge badge-secondary' }.join(' ') %>
-<br>
-Download:<br>
-<%= link_to "Download theme", "http://#{@theme.download}"%>
-<hr>
-<br><br>
+			<div class="profile-info-value">
+				<span><%= link_to @theme.user.userparam.username, userparam_path(@theme.user.userparam.id)%></span>
+			</div>
+		</div>
 
-<% if user_signed_in? %>
+		<div class="profile-info-row">
+			<div class="profile-info-name"></div>
+				<div class="profile-info-value">
+					<% @theme.photos.each do |x| %>
+    		        	<span><%= image_tag x.url,  style:" width:500px;" %></span>
+            		<% end %>
+				</div>
+			</div>
 
-  Input something :)
-  <br>
-  <%= form_for :comment, url:comments_path do |f| %>
-  <%= render 'comments/comment', f:f%>
-  <%= f.hidden_field :object_type, value: @theme.class.name%>
-  <%= f.hidden_field :object_id, value: @theme.id%>
-  <%= f.submit "Create" %>
-<% end %>
-<% else %>
-<br>
-Want to create a new comment?<br>
-<%= link_to "Login", new_user_session_path %>
-or
-<%= link_to "Registration", new_user_registration_path %>
+			<div class="profile-info-row">
+				<div class="profile-info-name">
+					<%= t(:system)%>
+				</div>
 
-<% end%>
+				<div class="profile-info-value">
+					<span>
+						<%@theme.systems.each do |system|%>
+                			<%= system.name %><br>
+            			<%end%>
+					</span>
+				</div>
+			</div>
 
-<% Comment.where(object: @theme).each do |comment| %>
-<br>User:
-<%= comment.user.userparam.username %>
-<br>
-<%= comment.text%>
-<hr>
-<%end%>
+        <div class="profile-info-row">
+			<div class="profile-info-name">
+				<%= t(:view)%>
+			</div>
+
+			<div class="profile-info-value">
+				<span>
+					<%= @theme.views %>
+				</span>
+			</div>
+		</div>
+
+        <div class="profile-info-row">
+			<div class="profile-info-name">
+				<%= t(:description)%>
+			</div>
+
+			<div class="profile-info-value">
+				<span>
+					<%= @theme.description%>
+				</span>
+			</div>
+		</div>
+
+        <div class="profile-info-row">
+			<div class="profile-info-name">
+				<%= t(:tags)%>
+			</div>
+
+			<div class="profile-info-value">
+				<span>
+					<%= raw @theme.tags.map{ |tag| link_to tag.category.name, category_path(tag.category.name), class: 'font-weight-bold badge badge-secondary' }.join(' ') %>
+				</span>
+			</div>
+		</div>
+
+        <div class="profile-info-row">
+			<div class="profile-info-name">
+				<%= t(:download)%>
+			</div>
+
+			<div class="profile-info-value">
+				<span>
+					<%= link_to t(:downloadt), "http://#{@theme.download}"%>
+				</span>
+			</div>
+		</div>
+
+        <div class="profile-info-row">
+			<div class="profile-info-name"></div>
+			<div class="profile-info-value">
+				<span>
+					<%if user_signed_in? && current_user.id == @theme.user_id%>
+		                <%=link_to t(:edit), edit_theme_path(@theme.id), class:"btn btn-secondary"%><br>
+        		    <%end%>
+				</span>
+			</div>
+		</div>
+
+        <div class="profile-info-row">
+			<div class="profile-info-name">
+		        <%= link_to t(:like), theme_like_path(@theme.id)%>
+			</div>
+
+			<div class="profile-info-value">
+				<span>
+					<%= @theme.likes.length %>
+				</span>
+			</div>
+		</div>
+
+        <div class="profile-info-row">
+			<div class="profile-info-name">
+        	    <%= link_to t(:dislike), theme_dislike_path(@theme.id)%>
+			</div>
+
+			<div class="profile-info-value">
+				<span>
+            		<%= @theme.dislikes.length %>
+				</span>
+			</div>
+		</div>
+
+        <div class="profile-info-row">
+			<div class="profile-info-name"></div>
+			<div class="profile-info-value">
+				<span>
+		            <%= link_to t(:tochosen), chosen_path(@theme.id), class:"btn btn-primary"%>
+				</span>
+			</div>
+		</div>
+
+        <div class="profile-info-row">
+			<div class="profile-info-name"></div>
+				<div class="profile-info-value">
+					<span>
+			            <% if user_signed_in? %>
+            			    <%= render 'comments/form'%>
+            			<% else %>
+                			<%= t(:tocomment)%><br>
+                			<%= link_to t(:log_in), new_user_session_path, class:"btn btn-default" %>
+              			<% end%>
+					</span>
+				</div>
+		</div>
+
+        <div class="profile-info-row">
+        	<div class="profile-info-name"></div>
+            <div class="profile-info-value">
+            	<% @comments.each do |comment| %>
+              		<%=render 'comments/comment', comment:comment %>
+            	<%end%>
+            </div>
+        </div>
+    </div>
+</div>
+    
+	<div class="col-lg-5 center">
+		<h5 class="blue"><%= t(:sthemes)%></h5>
+		<hr style="background-color:#ff82e7;">
+		<%= render @theme_recommendation%>
+	</div>
+	<div class="col-lg-1"></div>
+  </div>
+</div>

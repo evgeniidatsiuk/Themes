@@ -1,6 +1,8 @@
 class Comment < ApplicationRecord
   belongs_to :user
-  belongs_to :object, polymorphic: true
+  belongs_to :theme
 
-  #validates :text, presence:true
+  has_many :likes, as: :object,    dependent: :destroy
+  has_many :dislikes, as: :object, dependent: :destroy
+
 end

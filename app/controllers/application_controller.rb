@@ -1,7 +1,19 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :store_user_location!, if: :storable_location?
+  before_action :set_locale
   protect_from_forgery with: :exception
+
+
+  def default_url_options
+    { locale: I18n.locale }
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+    Rails.application.routes.default_url_options[:locale]=I18n.locale
+  end
+
   protected
 
   def configure_permitted_parameters
@@ -20,4 +32,5 @@ class ApplicationController < ActionController::Base
       # :user is the scope we are authenticating
       store_location_for(:user, request.fullpath)
     end
+
 end

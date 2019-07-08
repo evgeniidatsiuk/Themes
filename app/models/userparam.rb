@@ -5,11 +5,19 @@ class Userparam < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: ['image/jpeg', 'image/gif', 'image/png']
 
   validates :firstname, presence: true
-  validates :lastname, presence: true
-  validates :age, presence: true, inclusion: { in: 1..125, message: 'must be 18 or older' }
+  validates :lastname,  presence: true
+  validates :age,       presence: true, inclusion: { in: 8..125, message: 'must be 8 or older' }
 
   def username
     username = user.nickname
     username ||= user.email.split('@').first
+  end
+
+  def chosens
+    user.chosens
+  end
+
+  def user_id
+    user.id
   end
 end

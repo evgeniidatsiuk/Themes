@@ -1,4 +1,82 @@
-<br><br>
-<center>
-  <h3>The Earth goes around the Sun</h3>
-</center>
+<div class="user-profile container-fluid">
+
+	<div class="row">
+    <div class="col-1"></div>
+		<div class="col-lg-3">
+      <div class="profile-user-info">
+
+				<div class="profile-info-row">
+					<div class="profile-info-name pinkie-left-sp">
+						<%= t(:nthemes)%>
+					</div>
+
+					<div class="profile-info-value pinkie-right-sp">
+						<span>
+              <% @themes.last(5).each do |theme| %>
+                <div class="profile-info-name">
+                  <%= t(:title)%>
+                </div>
+                <div class="profile-info-value">
+                  <%= theme.name%>
+                </div>
+                <% theme.photos.each do |x| %>
+                  <%= image_tag x.url, style:"width:300px;" %>
+                <% end %>
+                <div class="profile-info-name">
+                  <%= t(:system)%>
+                </div>
+                <div class="profile-info-value">
+                  <% theme.systems.each do |system| %>
+                  <%= link_to system.name, system_path(system.name) %>
+                <% end %>
+                </div>
+                <hr>
+                <br>
+              <% end %>
+            </span>
+					</div>
+				</div>
+        
+        <div class="profile-info-row">
+					<div class="profile-info-name pinkie-left-sp">
+						<%= t(:ncomments)%>
+					</div>
+
+					<div class="profile-info-value pinkie-right-sp">
+						<span>
+              <% @comments.last(5).each do |comment| %>
+                <div class="profile-info-name">
+                  <%= t(:user)%>
+                </div>
+                <div class="profile-info-value">
+                  <%= link_to comment.user.userparam.username, userparam_path(comment.user.userparam.id)%>
+                </div>
+                <br>
+                <div class="profile-info-name">
+                  <%= t(:commentto)%>
+                </div>
+                <div class="profile-info-value">
+                  <%= link_to comment.theme.name, theme_path(comment.theme.id)%>
+                </div>
+                <br>
+                <div class="profile-info-name">
+                  <%= t(:created)%>
+                </div>
+                <div class="profile-info-value">
+                  <%= comment.created_at.to_date.strftime("%d %B, %Y ") %>
+                </div>
+                <hr>
+                <br>
+              <%end%>
+            </span>
+					</div>
+				</div>
+      </div>
+    </div>
+    
+    <div class="col-lg-7 center">
+      <%= image_tag "/assets/about.jpg", style:"width:800px" %>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>

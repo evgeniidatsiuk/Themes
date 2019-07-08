@@ -1,15 +1,8 @@
 @import 'bootstrap';
 
-.login-page {
-    width: 360px;
-    padding: 8% 0 0;
-    margin: auto;
-    background-color: #FFFFFF;
-}
 .login-form, .registration-form {
     position: relative;
     z-index: 1;
-    background: #FFFFFF;
     max-width: 360px;
     margin: 0 auto 100px;
     padding: 45px;
@@ -31,7 +24,7 @@
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #88cc9c;
+    background: #ff8ef3;
     width: 100%;
     border: 0;
     padding: 15px;
@@ -42,7 +35,7 @@
     cursor: pointer;
 }
 .btn-primary:hover,.btn-primary:active,.btn-primary:focus {
-    background: #60ba7a !important;
+    background: #ff82e7 !important;
     box-shadow:none !important;
     outline:0px !important;
 }
@@ -52,9 +45,9 @@
     outline: 0;
     background: #FFFFFF;
     width: 100%;
-    border: 1px;
+    border: 0;
     padding: 15px;
-    color: #88cc9c;
+    color: #ff8ef3;
     font-size: 14px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
@@ -62,10 +55,57 @@
 }
 .btn-secondary:hover,.btn-secondary:active,.btn-secondary:focus {
     font-weight: bold !important;
-    color: #88cc9c !important;
+    color: #ff82e7 !important;
     background: #FFFFFF !important;
+    border: 1px solid #ff8ef3 !important;
     box-shadow:none !important;
     outline:0px !important;
+}
+.btn-default {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    width: 100%;
+    border: 2px solid #ff8ef3;
+    border-radius: 10px;
+    padding: 5px;
+    color: #ff8ef3;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+.btn-default:hover,.btn-default:active,.btn-default:focus {
+    color: #ff82e7 !important;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow:none !important;
+    outline:0px !important;
+}
+.nav-link {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    width: 100%;
+    padding: 5px;
+    color: #ff8ef3;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+.nav-link:hover,.nav-link:active,.nav-link:focus {
+    color: #ff82e7 !important;
+    border-bottom: 2px solid #ff8ef3;
+    background-color: #FFFFFF;
+    box-shadow:none !important;
+    outline:0px !important;
+}
+.nav-item {
+    margin-right: 20px;
+}
+.btn-main-ghost:hover {
+    color: #ff82e7 !important
 }
 .container {
     position: relative;
@@ -73,39 +113,35 @@
     max-width: 300px;
     margin: 0 auto;
 }
-  .container:before, .container:after {
+.container:before, .container:after {
     content: "";
     display: block;
     clear: both;
-  }
-  .container .info {
+}
+.container .info {
     margin: 50px auto;
     text-align: center;
-  }
-  .container .info h1 {
+}
+.container .info h1 {
     margin: 0 0 15px;
     padding: 0;
     font-size: 36px;
     font-weight: 300;
     color: #1a1a1a;
-  }
-  .container .info span {
+}
+.container .info span {
     color: #4d4d4d;
     font-size: 12px;
-  }
-  .container .info span a {
+}
+.container .info span a {
     color: #000000;
     text-decoration: none;
-  }
-  .container .info span .fa {
+}
+.container .info span .fa {
     color: #EF3B3A;
-  }
-  body {
+}
+body {
     font-family: "Roboto", sans-serif;
-  }
-
-.user-profile {
-    
 }
 
 .align-center, .center {
@@ -219,5 +255,33 @@
 }
 
 .blue {
-    color: #478FCA!important
+    color: #ff82e7!important
+}
+
+.pinkie-right {
+    background: linear-gradient(to right, rgba(255,234,251,1) 0%,rgba(255,234,251,0.6) 38%,rgba(255,255,255,1) 71%);
+    padding:10px;
+    border-right: 1px solid #ff8ef3;
+}
+
+.pinkie-right-sp{
+    background: linear-gradient(to right, rgba(255,234,251,1) 0%,rgba(255,234,251,0.6) 38%,rgba(255,255,255,1) 71%);
+    padding:10px;
+}
+
+.pinkie-left-sp {
+    background: linear-gradient(to left, rgba(255,234,251,1) 0%,rgba(255,234,251,0.6) 38%,rgba(255,255,255,1) 71%);
+    padding:10px;
+    border-right: 1px solid #ff8ef3;
+}
+
+.pinkie-left {
+    background: linear-gradient(to left, rgba(255,234,251,1) 0%,rgba(255,234,251,0.6) 38%,rgba(255,255,255,1) 71%);
+    padding:10px;
+}
+
+.pinkie-bottom {
+    background: linear-gradient(to bottom, rgba(255,234,251,1) 0%,rgba(255,234,251,0.6) 38%,rgba(255,255,255,1) 71%);
+    padding:10px;
+    border-right: 1px solid #ff8ef3;
 }

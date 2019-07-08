@@ -1,21 +1,28 @@
 class User < ApplicationRecord
   attr_accessor :login
-  after_create :create_userparam
+  after_create :create_userparam, :welcome_send
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :userparam
-  has_many :themes
-  has_many :comments
+  has_one  :userparam,             dependent: :destroy
+  has_many :themes,                dependent: :destroy
+  has_many :comments,              dependent: :destroy
+  has_many :likes, as: :object,    dependent: :destroy
+  has_many :dislikes, as: :object, dependent: :destroy
+  has_many :chosens
+
+  acts_as_messageable
+
+
 
   validates :nickname, presence: :true, uniqueness: { case_sensitive: false }
   # validates_format_of :nickname, with: /\A\w+ +\w+\z/, multiline: true
 
   def create_userparam
-    @userparam = Userparam.create(user_id: id, firstname: "Your FirstName", lastname: "Your LastName", age: 1)
+    @userparam = Userparam.create(user_id: id, firstname: "user#{id}", lastname: "user#{id}", age: 18)
     @userparam.save
    end
 
@@ -23,12 +30,6 @@ class User < ApplicationRecord
     conditions = warden_conditions.dup
     login = conditions.delete(:login)
     where(conditions).where(['lower(nickname) = :value OR lower(email) = :value', { value: login.strip.downcase }]).first
-  end
-
-  def self.send_reset_password_instructions(attributes = {})
-    recoverable = find_recoverable_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
-    recoverable.send_reset_password_instructions if recoverable.persisted?
-    recoverable
   end
 
   def self.find_recoverable_or_initialize_with_errors(required_attributes, attributes, error = :invalid)
@@ -45,20 +46,17 @@ class User < ApplicationRecord
         record = where(attributes).first
       end
     end
-
-    unless record
-      record = new
-
-      required_attributes.each do |key|
-        value = attributes[key]
-        record.send("#{key}=", value)
-        record.errors.add(key, value.present? ? error : :blank)
-      end
-    end
-    record
   end
 
   def self.find_record(login)
     where(['username = :value OR email = :value', { value: login }]).first
+  end
+
+  def mailboxer_email(object)
+    nil
+  end
+  
+  def welcome_send
+    WelcomeMailer.welcome_email(self).deliver
   end
 end

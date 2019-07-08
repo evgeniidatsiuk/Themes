@@ -1,10 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #ffeafb;">
   <a class="navbar-brand">THEMES</a>
-  <ul class="navbar-nav ml-auto">
-  <li class="nav-item"><%= link_to "Home", root_path, class:"nav-link" %></li>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  <ul class="navbar-nav mr-auto">
+  <li class="nav-item"><%= link_to t(:home), root_path, class:"nav-link" %></li>
 
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">Themes
+    <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown"><%= t :themes %>
       <span class="caret"></span>
     </a>
       <ul class="dropdown-menu">
@@ -18,27 +22,45 @@
   <% if user_signed_in? %>
 
     <% if current_user.userparam.nil? %>
-      
-      <li class="nav-item"><%= link_to "Profile", new_userparam_path, class:"nav-link"%></li>
+
+      <li class="nav-item"><%= link_to t(:profile), new_userparam_path, class:"nav-link"%></li>
 
     <% else %>
 
-      <li class="nav-item"><%= link_to "Profile", userparam_path(current_user.id), class:"nav-link"%></li>
+      <li class="nav-item"><%= link_to t(:profile) , userparam_path(current_user.id), class:"nav-link"%></li>
 
     <% end %>
 
-    <li class="nav-item"><%= link_to "Add your Theme!", new_theme_path, class:"nav-link"%></li>
+    <li class="nav-item"><%= link_to t(:add), new_theme_path, class:"nav-link"%></li>
 
-    <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-link" %></li>
-
-  <% else %>
-
-    <li class="nav-item ml-auto"><%= link_to "Login", new_user_session_path, class:"nav-link" %></li>
-    <li class="nav-item ml-auto"><%= link_to "Registration", new_user_registration_path, class:"nav-link" %></li>
-
-  <% end %>
+    <% end %>
   </ul>
+  <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a href="https://github.com/evgeniidatsiuk/Themes">
+                <%= image_tag  "/assets/GitHub-Mark-32px.png"%>
+            </a>
+        </li>
+
+        <% if user_signed_in? %>
+
+        <li class="nav-item"><%= link_to t(:logout), destroy_user_session_path, method: :delete, class:"btn btn-default" %></li>
+
+        <%else%>
+
+        <li class="nav-item ml-auto"><%= link_to t(:log_in), new_user_session_path, class:"btn btn-default" %></li>
+
+        <% end %>
+
+        <li class="nav-lang is-first text-sm-center">
+          <% if I18n.locale == :uk %>
+          <%= link_to 'EN', { locale: :en }, { class: 'btn btn-main-ghost' } %>
+          <% else %>
+          <%= link_to 'UA', { locale: :uk }, { class: 'btn btn-main-ghost' } %>
+          <% end %>
+        </li>
+    </ul>
+    </div>
 </nav>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div style="height:30px"></div>

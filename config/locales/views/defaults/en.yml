@@ -1,0 +1,20 @@
+en:
+  home: "Home"
+  themes: "Themes"
+  profile: "Profile"
+  add: "Add Theme"
+  logout: "Logout"
+  log_in: "Login"
+
+  nthemes: "Recently added themes"
+  ncomments: "Recently added comments"
+  user: "User"
+  commentto: "Comment to theme"
+  created: "Created at"
+
+  delete: "delete"
+  comment: "Comment"
+  totag: "Want to create a new theme with tags?"
+  send: "Send"
+  subject: "Subject"
+  sayh: "Say hello"

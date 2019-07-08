@@ -1,6 +1,6 @@
 <div class="col-2 login-box">
   <%= simple_form_for @userparam, url: userparams_path, validate: true do |f| %>
   <%=render 'userparams/form', f:f%>
-  <%= f.submit "Create", class:"btn btn-primary" %>
+  <%= f.submit t(:create), class:"btn btn-primary" %>
 <% end %>
 </div>

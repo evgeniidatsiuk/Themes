@@ -1,0 +1,24 @@
+en:
+  nickname: "Nickname"
+  email: "Email"
+  password: "Password"
+  confirm: "Confirm Password"
+  signup: "Sign Up"
+
+  login: "Nickname or Email"
+  ypassword: "Current Password"
+  nconfirm: "Confirm New Password"
+  log_in: "Log In"
+  confask: "Are you sure?"
+  update: "Update"
+  deleteacc: "Cancel my account"
+  edit: "Edit"
+  back: "Back"
+
+  forgot: "Forgot your password?"
+  confin: "Didn't receive confirmation instructions?"
+  unlock: "Didn't receive unlock instructions?"
+  signwith: "Sign with %{omni}"
+
+  changeyp: "Password change"
+  remember_me: "Remember me"

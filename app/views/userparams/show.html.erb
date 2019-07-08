@@ -1,37 +1,44 @@
 <div class="user-profile container-fluid">
-	
+
 	<div class="row">
 		<div class="col-lg-3"></div>
 		<div class="col-sm-6 col-lg-3 center">
-       		<span class="profile-picture">
-           	<%= image_tag @userparam.avatar.url(:thumb), class:"img-thumbnail"%>
+			<span class="profile-picture">
+				<%= image_tag @userparam.avatar.url(:original), class:"img-thumbnail", style:"width:500px"%>
 			</span>
 
 			<%if user_signed_in? && current_user.id == @userparam.id%>
 
-			<%=link_to "Edit Profile", edit_userparam_path(@userparam.id), class:"btn btn-sm btn-block btn-primary"%><br>
-			<%=link_to "Settings", edit_user_registration_path, class:"btn btn-sm btn-block btn-primary"%><br>
+				<%=link_to t(:edit), edit_userparam_path(@userparam.id), class:"btn btn-sm btn-block btn-primary"%><br>
+				<%=link_to t(:settings), edit_user_registration_path, class:"btn btn-sm btn-block btn-primary"%><br>
+				<%= link_to t(:nconv), new_conversation_path, class:"btn btn-sm btn-block btn-primary" %>
 
 			<%end%>
 
-		</div><!-- /.col -->
+		</div>
+		<!-- /.col -->
 
 		<div class="col-sm-6 col-lg-3">
 			<h4 class="blue">
-				<span class="middle">Welcome to <%=@userparam.username%> profile</span>
+				<span class="middle"><%= t(:welcometo,
+					user: @userparam.username)%></span>
 			</h4>
 
 			<div class="profile-user-info">
 				<div class="profile-info-row">
-					<div class="profile-info-name"> Username </div>
+					<div class="profile-info-name">
+						<%= t(:nickname)%>
+					</div>
 
 					<div class="profile-info-value">
-						<span><%=@userparam.username%></span>               
-   					</div>
-   				</div>
+						<span><%=@userparam.username%></span>
+					</div>
+				</div>
 
-   				<div class="profile-info-row">
-					<div class="profile-info-name"> First Name </div>
+				<div class="profile-info-row">
+					<div class="profile-info-name">
+						<%= t(:fn)%>
+					</div>
 
 					<div class="profile-info-value">
 						<span><%=@userparam.firstname%></span>
@@ -39,26 +46,80 @@
 				</div>
 
 				<div class="profile-info-row">
-					<div class="profile-info-name"> Last Name </div>
+					<div class="profile-info-name">
+						<%= t(:ln)%>
+					</div>
 
 					<div class="profile-info-value">
 						<span><%=@userparam.lastname%></span>
 					</div>
 				</div>
-							  
+
 				<div class="profile-info-row">
-					<div class="profile-info-name"> Age </div>
+					<div class="profile-info-name">
+						<%= t(:age)%>
+					</div>
 
 					<div class="profile-info-value">
 						<span><%=@userparam.age%></span>
 					</div>
- 				</div>
-                
+				</div>
+
 			</div>
 			
-		</div><!-- /.col -->
+			<h5 class="blue">
+				<span class="middle"><%= t(:chosen)%></span>
+			</h3>
+
+			<div class="profile-user-info">
+				<div class="profile-info-row">
+					<div class="profile-info-name">
+						<% @userparam.user.chosens.each do |x| %>
+						<%= t(:title)%>
+					</div>
+
+					<div class="profile-info-value">
+						<span><%= x.theme.name%></span>
+					</div>
+				</div>
+
+				<div class="profile-info-row">
+					<div class="profile-info-name"></div>
+					<div class="profile-info-value">
+						<% x.theme.photos.each do |x| %>
+							<span><%= image_tag x.url, style:"width:500px;" %></span>
+						<% end %>
+					</div>
+				</div>
+
+				<div class="profile-info-row">
+					<div class="profile-info-name">
+						<%= t(:system)%>
+					</div>
+
+					<div class="profile-info-value">
+						<span>
+							<% x.theme.systems.each do |system| %>
+								<%= system.name %><br>
+							<% end %>
+						</span>
+					</div>
+				</div>
+
+				<div class="profile-info-row">
+					<div class="profile-info-name">
+					</div>
+					<div class="profile-info-value">
+						<%= link_to t(:more), theme_path(x.theme.id), class:"btn btn-secondary"%>
+						<% end %>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- /.col -->
 		<div class="col-lg-3"></div>
-	</div><!-- /.row -->
-				
-		
+	</div>
+	<!-- /.row -->
 </div>
